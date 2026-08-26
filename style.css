@@ -1,0 +1,57 @@
+body {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+a{
+    text-decoration: none;
+    color : blue;
+}
+a:visited{
+    color : blue;
+}
+a:hover {
+    color : blueviolet;
+}
+#Home {
+    padding: 40px;
+}
+
+.home-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-text {
+    flex: 1;
+}
+
+.home-image {
+    flex: 0 0 350px;
+    text-align: center;
+}
+
+.my_profile {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
