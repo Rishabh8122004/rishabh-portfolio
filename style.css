@@ -55,3 +55,92 @@ a:hover {
     height: auto;
     border-radius: 10px;
 }
+body > p, body > ul, body > ol, body > form {
+    max-width: 700px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+.skills-page ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 0;
+}
+
+.skills-page li {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+body > ul {
+    list-style: none;
+    padding: 0;
+}
+
+body > ul > li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+}
+main ol {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+main ol li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+main ol li h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+    width: fit-content;
+}
+
+form button:hover {
+    background-color: #34495e;
+}
+@media (max-width: 600px) {
+    .home-content {
+        flex-direction: column;
+    }
+    nav {
+        flex-wrap: wrap;
+    }
+}
