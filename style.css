@@ -2,22 +2,18 @@ body {
     padding: 20px;
     font-family: Arial, sans-serif;
 }
-
 header {
     text-align: center;
     padding: 30px;
 }
-
 h1 {
     margin-bottom: 25px;
 }
-
 nav {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
-
 a{
     text-decoration: none;
     color : blue;
@@ -31,7 +27,6 @@ a:hover {
 #Home {
     padding: 40px;
 }
-
 .home-content {
     display: flex;
     align-items: center;
@@ -40,16 +35,13 @@ a:hover {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .home-text {
     flex: 1;
 }
-
 .home-image {
     flex: 0 0 350px;
     text-align: center;
 }
-
 .my_profile {
     width: 300px;
     height: auto;
@@ -68,18 +60,16 @@ body > main, main > p, main > ul, main > ol, main > form {
     justify-content: center;
     padding: 0;
 }
-
 .skills-page li {
     background-color: #f0f0f0;
     padding: 10px 20px;
     border-radius: 8px;
 }
-body > ul {
+main > ul {
     list-style: none;
     padding: 0;
 }
-
-body > ul > li {
+main > ul > li {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -92,7 +82,6 @@ main ol {
     max-width: 700px;
     margin: 0 auto;
 }
-
 main ol li {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -100,7 +89,6 @@ main ol li {
     padding: 20px;
     margin-bottom: 20px;
 }
-
 main ol li h3 {
     margin-top: 0;
     color: #2c3e50;
@@ -112,7 +100,6 @@ form {
     flex-direction: column;
     gap: 12px;
 }
-
 form input[type="text"],
 form input[type="email"],
 form input[type="tel"],
@@ -122,7 +109,6 @@ form textarea {
     border-radius: 5px;
     font-family: inherit;
 }
-
 form button {
     padding: 10px;
     border: none;
@@ -132,7 +118,6 @@ form button {
     cursor: pointer;
     width: fit-content;
 }
-
 form button:hover {
     background-color: #34495e;
 }
