@@ -1,131 +1,1028 @@
-body {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
+/* ==================================================
+   GLOBAL STYLES
+   ================================================== */
+
+/* ==================================================
+   HEADER
+   ================================================== */
+
 header {
-    text-align: center;
-    padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+/* ===== Header Heading ===== */
+
 h1 {
-    margin-bottom: 25px;
+  color: #172554;
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+
+  margin: 30px 0;
 }
+
+/* ==================================================
+   NAVIGATION
+   ================================================== */
+
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  width: 90%;
+  padding: 15px;
+
+  background-color: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+
+  margin: 0 auto;
 }
-a{
-    text-decoration: none;
-    color : blue;
-}
-a:visited{
-    color : blue;
-}
-a:hover {
-    color : blueviolet;
-}
-#Home {
-    padding: 40px;
-}
+
+/* ==================================================
+   HOME / HERO SECTION
+   ================================================== */
+
 .home-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  padding: 40px 20px;
+
+  text-align: center;
 }
+
+/* ===== Hero Text ===== */
+
 .home-text {
-    flex: 1;
+  max-width: 700px;
 }
-.home-image {
-    flex: 0 0 350px;
-    text-align: center;
+
+.home-text p {
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.6;
+
+  margin-bottom: 20px;
 }
+/* ===== Hero Name ===== */
+
+.home-text h2 {
+  margin: 0;
+  color: #172554;
+  font-size: 32px;
+}
+
+/* ===== Hero Professional Title ===== */
+
+.home-text h3 {
+  margin: 5px 0 15px;
+  color: #475569;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* ===== Hero Image ===== */
+
 .my_profile {
-    width: 300px;
-    height: auto;
-    border-radius: 10px;
+  width: 200px;
+  height: 200px;
+
+  object-fit: cover;
+  border-radius: 50%;
 }
-body > main, main > p, main > ul, main > ol, main > form {
-    max-width: 700px;
-    margin: 0 auto 20px;
-    line-height: 1.6;
+
+.home-image {
+  text-align: center;
 }
-.skills-page ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+
+.my_name {
+  margin-top: 10px;
+
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* ===== Hero Resume Button ===== */
+
+.home-text > a {
+  display: inline-block;
+
+  padding: 12px 24px;
+  margin-top: 10px;
+
+  background-color: #2563eb;
+  color: white;
+
+  text-decoration: none;
+  border-radius: 6px;
+
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+.home-text > a:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+
+/* ===== Social Links ===== */
+
+.social-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #1d4ed8;
+}
+
+/* ==================================================
+   HOME LINK
+   ================================================== */
+
+.home-link {
+  display: inline-block;
+
+  margin: 20px;
+  padding: 8px 16px;
+
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.home-link:hover {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* ==================================================
+   ABOUT PAGE
+   ================================================== */
+
+.about-page main {
+  width: 100%;
+}
+
+/* ===== About Content ===== */
+
+.about-content {
+  box-sizing: border-box;
+
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ===== About Paragraphs ===== */
+
+.about-content p {
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.7;
+
+  margin-bottom: 25px;
+}
+
+/* ===== About Links ===== */
+
+.about-content a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: color 0.3s;
+}
+
+.about-content a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* ===== About Heading ===== */
+
+.about-page h1 {
+  color: #172554;
+  font-size: 32px;
+  text-align: center;
+
+  margin: 30px 0;
+}
+
+/* ==================================================
+   SKILLS PAGE
+   ================================================== */
+
+/* ===== Skills Grid ===== */
+
+.skills-page main ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  list-style: none;
+}
+
+/* ===== Skill Cards ===== */
+
+.skills-page main li {
+  padding: 20px;
+
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  color: #334155;
+  font-size: 16px;
+  font-weight: 600;
+
+  text-align: center;
+
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+/* ===== Skill Card Hover ===== */
+
+.skills-page main li:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Skills Links ===== */
+
+.skills-page main li a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: color 0.3s;
+}
+
+.skills-page main li a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* ==================================================
+   EDUCATION
+   Soft timeline + education cards
+   ================================================== */
+
+.education-page main > ul {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px 50px 45px;
+  list-style: none;
+}
+
+/* Vertical timeline */
+.education-page main > ul::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 35px;
+  bottom: 60px;
+  width: 2px;
+  background-color: #dbe4f0;
+}
+
+/* Each education entry */
+.education-page main > ul > li {
+  position: relative;
+  margin-bottom: 28px;
+  padding: 22px 20px;
+
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+/* Timeline checkpoint */
+.education-page main > ul > li::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 27px;
+
+  width: 12px;
+  height: 12px;
+
+  background-color: #2563eb;
+  border: 3px solid white;
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 2px #dbe4f0;
+}
+
+/* Education section title */
+.education-page main > ul > li > strong,
+.education-page main > ul > li > b {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #172554;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+/* Information inside each education entry */
+.education-page main > ul > li > ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* Individual information points */
+.education-page main > ul > li > ul > li {
+  margin-bottom: 9px;
+
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Remove unnecessary spacing from the last point */
+.education-page main > ul > li > ul > li:last-child {
+  margin-bottom: 0;
+}
+
+/* Links inside education */
+.education-page main a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: color 0.3s;
+}
+
+/* Link hover effect */
+.education-page main a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* ==================================================
+   EDUCATION HOVER EFFECT
+   ================================================== */
+
+.education-page main > ul > li {
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+/* Slight lift when the user hovers over an entry */
+.education-page main > ul > li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+/* ==================================================
+   PROJECTS PAGE
+   ================================================== */
+
+/* ===== Projects Grid ===== */
+
+.projects-page main ol {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  list-style: none;
+}
+/* ===== Project Cards ===== */
+
+.projects-page main ol > li {
+  padding: 22px 20px;
+
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+}
+/* ===== Project Titles ===== */
+
+.projects-page main ol > li h3 {
+  margin: 0 0 12px;
+
+  color: #172554;
+  font-size: 21px;
+}
+/* ===== Project Descriptions ===== */
+
+.projects-page main ol > li > p {
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.7;
+
+  margin: 0 0 12px;
+}
+
+/* Remove extra space from the last paragraph */
+.projects-page main ol > li > p:last-of-type {
+  margin-bottom: 15px;
+}
+
+/* ===== Project Technology Information ===== */
+
+.projects-page main ol > li > p b {
+  color: #172554;
+}
+
+/* ===== Project Technology Information ===== */
+
+.projects-page main ol > li p strong,
+.projects-page main ol > li p b {
+  color: #172554;
+}
+
+/* ==================================================
+   PROJECT HOVER EFFECT
+   ================================================== */
+
+/* Smooth transition before the hover state */
+.projects-page main ol > li {
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+/* Slightly lift the card when hovered */
+.projects-page main ol > li:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+/* ==================================================
+   PROJECT LINKS
+   ================================================== */
+
+.projects-page main ol > li a {
+  display: inline-block;
+
+  margin-top: 5px;
+  padding: 9px 16px;
+
+  background-color: #2563eb;
+  color: white;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+/* Project link hover effect */
+.projects-page main ol > li a:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+/* Arrange card content vertically */
+.projects-page main ol > li {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep the button at the bottom of every card */
+.projects-page main ol > li a {
+  margin-top: auto;
+  align-self: flex-start;
+}
+/* ==================================================
+   RESUME PAGE
+   ================================================== */
+
+/* ===== Resume Section ===== */
+
+.resume-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+/* ===== Resume Heading ===== */
+
+.resume-section h2 {
+  margin-bottom: 15px;
+  color: #172554;
+  font-size: 26px;
+}
+/* ===== Resume Summary ===== */
+
+.resume-section p {
+  margin-bottom: 25px;
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.7;
+}
+/* ===== Resume Button ===== */
+
+.resume-section > a {
+  display: inline-block;
+
+  padding: 12px 24px;
+  margin-top: 10px;
+
+  background-color: #2563eb;
+  color: white;
+
+  text-decoration: none;
+  border-radius: 6px;
+
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+/* Resume Button Hover */
+
+.resume-section > a:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+/* ==================================================
+   CONTACT PAGE
+   ================================================== */
+
+/* ===== Contact Form Container ===== */
+
+.contact-page main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ===== Contact Form Layout ===== */
+
+.contact-page form {
+  display: grid;
+  gap: 15px;
+
+  padding: 30px 25px;
+
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+}
+/* ===== Contact Section Heading ===== */
+
+.contact-page main > h2 {
+  margin: 0 0 10px;
+
+  color: #172554;
+  font-size: 28px;
+  text-align: center;
+}
+/* ===== Contact Introduction ===== */
+
+.contact-page main > p {
+  margin: 0 0 25px;
+
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+}
+/* ===== Contact Labels ===== */
+
+.contact-page form label {
+  font-weight: 600;
+  color: #172554;
+}
+
+/* ===== Contact Text Fields ===== */
+
+.contact-page form input[type="text"],
+.contact-page form input[type="email"],
+.contact-page form input[type="tel"],
+.contact-page form textarea {
+  width: 100%;
+  padding: 10px 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Contact Input Focus ===== */
+
+.contact-page form input[type="text"]:focus,
+.contact-page form input[type="email"]:focus,
+.contact-page form input[type="tel"]:focus,
+.contact-page form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* ===== Preferred Contact Method ===== */
+
+.contact-page form fieldset {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 15px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+/* ===== Fieldset Title ===== */
+
+.contact-page form legend {
+  padding: 0 8px;
+
+  font-weight: 600;
+  color: #172554;
+}
+
+/* ===== Radio Buttons ===== */
+
+.contact-page form input[type="radio"] {
+  width: auto;
+}
+
+/* ===== Contact Buttons ===== */
+
+.contact-page form button {
+  width: fit-content;
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #2563eb;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+/* ===== Contact Button Hover ===== */
+
+.contact-page form button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+/* ===== Contact Button Press Effect ===== */
+
+.contact-page form button:active {
+  transform: scale(0.98);
+}
+/* ===== Horizontal Contact Buttons ===== */
+
+.contact-page form button:nth-last-child(2) {
+  grid-column: 1;
+  justify-self: end;
+}
+
+.contact-page form button:last-child {
+  grid-column: 2;
+  justify-self: start;
+}
+/* ===== Contact Textarea Resize ===== */
+
+.contact-page form textarea {
+  resize: vertical;
+}
+/* ===== Contact Input Focus ===== */
+
+.contact-page form input[type="text"]:focus,
+.contact-page form input[type="email"]:focus,
+.contact-page form input[type="tel"]:focus,
+.contact-page form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+/* ===== Contact Input Hover ===== */
+
+.contact-page form input[type="text"]:hover,
+.contact-page form input[type="email"]:hover,
+.contact-page form input[type="tel"]:hover,
+.contact-page form textarea:hover {
+  border-color: #94a3b8;
+}
+/* ===== Radio Button Spacing ===== */
+
+.contact-page form input[type="radio"] {
+  margin: 0 2px 0 5px;
+}
+/* ===== Mobile Contact Buttons ===== */
+
+.contact-page form button {
+  padding: 10px 18px;
+}
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+/* ===== Footer Container ===== */
+
+footer {
+  margin-top: 40px;
+  padding: 25px 20px;
+
+  background-color: #172554;
+  color: white;
+
+  text-align: center;
+}
+/* ===== Footer Links ===== */
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 6px;
+
+  transition: color 0.3s;
+}
+
+/* Footer Link Hover */
+
+footer a:hover {
+  color: #93c5fd;
+}
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (min-width: 768px) {
+  /* ===== Tablet Navigation ===== */
+
+  nav {
+    flex-direction: row;
     justify-content: center;
-    padding: 0;
+    gap: 25px;
+  }
+
+  /* ===== Tablet Hero ===== */
+
+  .home-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 60px;
+
+    text-align: left;
+  }
+
+  /* ===== Tablet Hero Image ===== */
+
+  .my_profile {
+    width: 250px;
+    height: 250px;
+  }
+  /* ===== Tablet Hero Headings ===== */
+
+.home-text h2 {
+  font-size: 36px;
 }
-.skills-page li {
-    background-color: #f0f0f0;
-    padding: 10px 20px;
-    border-radius: 8px;
+
+.home-text h3 {
+  font-size: 22px;
 }
-main > ul {
-    list-style: none;
-    padding: 0;
+
+  /* ===== Tablet Skills Grid ===== */
+
+  .skills-page main ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ===== Tablet Education Timeline ===== */
+  /* Give education entries more breathing room */
+  .education-page main > ul {
+    max-width: 850px;
+    padding: 40px 30px 60px 65px;
+  }
+
+  /* Move timeline slightly outward */
+  .education-page main > ul::before {
+    left: 30px;
+  }
+
+  /* Move checkpoints with the timeline */
+  .education-page main > ul > li::before {
+    left: -42px;
+  }
+
+  /* Increase card spacing */
+  .education-page main > ul > li {
+    padding: 25px 28px;
+  }
+
+  /* Make education text slightly larger */
+  .education-page main > ul > li > ul > li {
+    font-size: 16px;
+  }
+  /* ===== Tablet Projects Grid ===== */
+
+  .projects-page main ol {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    padding: 50px 30px;
+  }
+
+  /* ===== Tablet Project Cards ===== */
+
+  .projects-page main ol > li {
+    padding: 25px 28px;
+  }
+  /* ===== Tablet Resume Section ===== */
+
+  .resume-section {
+    padding: 50px 30px;
+  }
+  /* ===== Tablet Contact Page ===== */
+
+  .contact-page main {
+    padding: 50px 30px;
+  }
+
+  .contact-page form {
+    padding: 35px 30px;
+  }
+  /* ===== Tablet Contact Heading ===== */
+
+  .contact-page main > h2 {
+    font-size: 30px;
+  }
+  /* ===== Tablet Footer ===== */
+
+  footer {
+    padding: 30px;
+  }
 }
-main > ul > li {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px 20px;
-    margin-bottom: 15px;
+
+/* ==================================================
+   DESKTOP
+   ================================================== */
+
+@media (min-width: 1024px) {
+  /* ===== Desktop Navigation ===== */
+
+  nav {
+    gap: 35px;
+  }
+
+  /* ===== Desktop Hero ===== */
+
+  .home-content {
+    gap: 100px;
+
+    padding: 70px 40px;
+  }
+
+  /* ===== Desktop Hero Image ===== */
+
+  .my_profile {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* ===== Desktop Hero Text ===== */
+
+  .home-text p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  /* ===== Desktop Hero Headings ===== */
+
+.home-text h2 {
+  font-size: 40px;
 }
-main ol {
-    list-style: none;
-    padding: 0;
-    max-width: 700px;
-    margin: 0 auto;
+
+.home-text h3 {
+  font-size: 24px;
 }
-main ol li {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-main ol li h3 {
-    margin-top: 0;
-    color: #2c3e50;
-}
-form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: inherit;
-}
-form button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #2c3e50;
-    color: white;
-    cursor: pointer;
-    width: fit-content;
-}
-form button:hover {
-    background-color: #34495e;
-}
-@media (max-width: 600px) {
-    .home-content {
-        flex-direction: column;
-    }
-    nav {
-        flex-wrap: wrap;
-    }
+
+  /* ===== Desktop Skills Grid ===== */
+
+  .skills-page main ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ===== Desktop Education Timeline ===== */
+
+  /* Wider education area on desktop */
+  .education-page main > ul {
+    max-width: 900px;
+    padding-top: 50px;
+  }
+
+  /* More comfortable education cards */
+  .education-page main > ul > li {
+    padding: 28px 32px;
+  }
+
+  /* Slightly larger section titles */
+  .education-page main > ul > li > strong,
+  .education-page main > ul > li > b {
+    font-size: 22px;
+  }
+  /* ===== Desktop Projects Grid ===== */
+
+  .projects-page main ol {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    padding: 60px 40px;
+  }
+
+  /* ===== Desktop Project Cards ===== */
+
+  .projects-page main ol > li {
+    padding: 28px 32px;
+  }
+
+  /* ===== Desktop Project Titles ===== */
+
+  .projects-page main ol > li h3 {
+    font-size: 22px;
+  }
+
+  /* ===== Desktop Project Descriptions ===== */
+
+  .projects-page main ol > li p {
+    font-size: 16px;
+  }
+  /* ===== Desktop Resume Section ===== */
+
+  .resume-section {
+    padding: 60px 40px;
+  }
+  /* ===== Desktop Contact Page ===== */
+
+  .contact-page main {
+    padding: 60px 40px;
+  }
+
+  .contact-page form {
+    padding: 40px 35px;
+  }
+  /* ===== Desktop Contact Heading ===== */
+
+  .contact-page main > h2 {
+    font-size: 32px;
+  }
+  /* ===== Desktop Footer ===== */
+
+  footer {
+    padding: 35px 40px;
+  }
 }
