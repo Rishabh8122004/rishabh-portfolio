@@ -68,12 +68,16 @@ const greeting = document.querySelector("#greeting");
 if (greeting) {
   const currentHour = new Date().getHours();
 
-  if (currentHour < 12) {
-    greeting.textContent = "Good Morning";
+  if (currentHour < 5) {
+    greeting.textContent = "🌙 Good Night";
+  } else if (currentHour < 12) {
+    greeting.textContent = "🌅 Good Morning";
   } else if (currentHour < 18) {
-    greeting.textContent = "Good Afternoon";
+    greeting.textContent = "☀️ Good Afternoon";
+  } else if (currentHour < 21) {
+    greeting.textContent = "🌇 Good Evening";
   } else {
-    greeting.textContent = "Good Evening";
+    greeting.textContent = "🌙 Good Night";
   }
 }
 /* hero message after clicking view resume */
@@ -82,7 +86,8 @@ const resumeButton = document.querySelector(".home-text > a");
 
 if (heroMessage && resumeButton) {
   resumeButton.addEventListener("click", function () {
-    heroMessage.textContent = "Thanks for checking out my profile!";
+    heroMessage.textContent = "📄 Thanks for checking out my resume!";
+    heroMessage.style.display = "block";
   });
 }
 /* ==================================================

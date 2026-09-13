@@ -2,6 +2,25 @@
    GLOBAL STYLES
    ================================================== */
 
+/* ===== Website Background ===== */
+body {
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      #bfdbfe 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      #c7d2fe 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #e0f2fe,
+      #eef2ff
+    );
+}
 /* ==================================================
    HEADER
    ================================================== */
@@ -24,6 +43,18 @@ h1 {
   margin: 30px 0;
 }
 
+/* ===== Dynamic Greeting ===== */
+#greeting {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 8px 16px;
+  color: #172554;
+  background-color: #dbeafe;
+  border-radius: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  border: 1px solid #93c5fd;
+}
 /* ==================================================
    NAVIGATION
    ================================================== */
@@ -118,25 +149,41 @@ nav a:hover {
    BACK TO TOP BUTTON
 ================================================== */
 
+/* ===== Back to Top ===== */
 #back-to-top {
   display: none;
-
   position: fixed;
-  bottom: 20px;
   right: 20px;
+  bottom: 20px;
+  width: 42px;
+  height: 42px;
 
-  padding: 10px 14px;
+  background-color: #172554;
+  color: #f8fafc;
 
-  background-color: #07a8ec;
-  color: white;
-
-  border: none;
-  border-radius: 8px;
+  border: 1px solid #2563eb;
+  border-radius: 50%;
 
   font-size: 20px;
-  cursor: pointer;
+  font-weight: 600;
+  line-height: 1;
 
+  cursor: pointer;
   z-index: 999;
+
+  box-shadow: 0 5px 15px #2563eb;
+
+  transition:
+    background-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+/* ===== Back to Top Hover ===== */
+#back-to-top:hover {
+  background-color: #2563eb;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
 /* ==================================================
    HOME / HERO SECTION
@@ -940,6 +987,40 @@ SKILLS PAGE
 .resume-section > a:hover {
   background-color: #1d4ed8;
   transform: scale(1.05);
+}
+/* ===== Resume Interaction Message ===== */
+#hero-message {
+  display: none;
+  width: fit-content;
+  margin: 15px 0 0;
+  padding: 10px 15px;
+
+  background-color: #eff6ff;
+  color: #172554;
+
+  border-left: 4px solid #2563eb;
+  border-radius: 6px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+
+  animation: resumeMessageAppear 0.4s ease forwards;
+}
+
+/* ===== Resume Message Animation ===== */
+@keyframes resumeMessageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 /* ==================================================
    CONTACT PAGE
