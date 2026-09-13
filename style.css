@@ -20,7 +20,7 @@ h1 {
   font-size: 40px;
   font-weight: bold;
   text-align: center;
-
+  padding: 65px;
   margin: 30px 0;
 }
 
@@ -28,26 +28,62 @@ h1 {
    NAVIGATION
    ================================================== */
 
-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 6px;
+/* ===== Mobile Navigation ===== */
 
-  width: 90%;
-  max-width: 600px;
-  padding: 10px;
+nav {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 30%;
+  height: 100vh;
+
+  flex-direction: column;
+
+  padding: 80px 15px 20px;
 
   background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
 
-  margin: 0 auto;
+  border-right: 1px solid #e2e8f0;
+  border-radius: 0;
 
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  box-shadow: 4px 0 15px rgba(15, 23, 42, 0.12);
+
+  z-index: 999;
+}
+
+nav.show {
+  display: flex;
 }
 /* ===== Navigation Links ===== */
+/* ==================================================
+   MOBILE MENU BUTTON
+================================================== */
 
+#menu-btn {
+  display: block;
+
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  padding: 8px 12px;
+
+  background-color: #f8fafc;
+  color: #172554;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+
+  z-index: 1000;
+}
 nav a {
   padding: 11px 14px;
 
@@ -63,6 +99,12 @@ nav a {
     color 0.3s,
     transform 0.3s;
 }
+/* ===== Active Navigation Link ===== */
+
+nav a.active {
+  background-color: #e0e7ff;
+  color: #1d4ed8;
+}
 
 /* ===== Navigation Link Hover ===== */
 
@@ -71,6 +113,30 @@ nav a:hover {
   color: #1d4ed8;
 
   transform: translateX(4px);
+}
+/* ==================================================
+   BACK TO TOP BUTTON
+================================================== */
+
+#back-to-top {
+  display: none;
+
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  padding: 10px 14px;
+
+  background-color: #07a8ec;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  z-index: 999;
 }
 /* ==================================================
    HOME / HERO SECTION
@@ -177,30 +243,34 @@ nav a:hover {
 }
 
 /* ==================================================
-   HOME LINK
-   ================================================== */
+   HOME PAGE LINK
+================================================== */
 
 .home-link {
-  display: inline-block;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 
-  margin: 20px;
-  padding: 8px 16px;
+  padding: 8px 14px;
 
-  color: #2563eb;
+  background-color: #f8fafc;
+  color: #172554;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
   text-decoration: none;
+  font-size: 15px;
   font-weight: 600;
 
-  border: 1px solid #2563eb;
-  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 
-  transition:
-    background-color 0.3s,
-    color 0.3s;
+  z-index: 1000;
 }
 
 .home-link:hover {
-  background-color: #2563eb;
-  color: white;
+  background-color: #e0e7ff;
+  color: #1d4ed8;
 }
 
 /* ==================================================
@@ -256,65 +326,82 @@ nav a:hover {
   margin: 30px 0;
 }
 
-/* ==================================================
-   SKILLS PAGE
-   ================================================== */
-
+/* ================================================== 
+SKILLS PAGE 
+================================================== */
 /* ===== Skills Grid ===== */
-
 .skills-page main ul {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 20px;
-
   list-style: none;
-}
-
-/* ===== Skill Cards ===== */
-
+} /* ===== Skill Cards ===== */
 .skills-page main li {
-  padding: 20px;
-
+  position: relative;
+  padding: 25px 20px;
   background-color: #f8fafc;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
-
   color: #334155;
-  font-size: 16px;
-  font-weight: 600;
-
-  text-align: center;
-
+  text-align: center; /* Scroll animation starting state */
+  opacity: 0;
+  transform: scale(0.88);
   transition:
-    transform 0.3s,
-    box-shadow 0.3s;
-}
-
-/* ===== Skill Card Hover ===== */
-
-.skills-page main li:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
-}
-
-/* ===== Skills Links ===== */
-
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    box-shadow 0.3s ease;
+} /* ===== Skill Card Visible State ===== */
+.skills-page main li.show-skill {
+  opacity: 1;
+  transform: scale(1);
+} /* ===== Skill Name ===== */
+.skills-page main li h3 {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 15px;
+  color: #172554;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+} /* ===== Skill Name Accent ===== */
+.skills-page main li h3::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 35px;
+  height: 3px;
+  background-color: #2563eb;
+  border-radius: 3px;
+  transform: translateX(-50%);
+} /* ===== Skill Description ===== */
+.skills-page main li p {
+  margin: 10px 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.6;
+} /* ===== Skill Card Hover ===== */
+.skills-page main li.show-skill:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+} /* ===== Skills Links ===== */
 .skills-page main li a {
+  display: inline-block;
+  margin-top: 8px;
   color: #2563eb;
   text-decoration: none;
   font-weight: 600;
-
-  transition: color 0.3s;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
-
 .skills-page main li a:hover {
   color: #1d4ed8;
   text-decoration: underline;
+  transform: translateY(-2px);
 }
 
 /* ==================================================
@@ -433,10 +520,9 @@ nav a:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
-
 /* ==================================================
    PROJECTS PAGE
-   ================================================== */
+================================================== */
 
 /* ===== Projects Grid ===== */
 
@@ -451,17 +537,31 @@ nav a:hover {
 
   list-style: none;
 }
+
 /* ===== Project Cards ===== */
 
 .projects-page main ol > li {
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
   padding: 22px 20px;
-
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-
   box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
+
+/* ===== Project Hover Effect ===== */
+
+.projects-page main ol > li:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
 /* ===== Project Titles ===== */
 
 .projects-page main ol > li h3 {
@@ -470,25 +570,21 @@ nav a:hover {
   color: #172554;
   font-size: 21px;
 }
+
 /* ===== Project Descriptions ===== */
 
 .projects-page main ol > li > p {
+  margin: 0 0 12px;
+
   color: #475569;
   font-size: 15px;
   line-height: 1.7;
-
-  margin: 0 0 12px;
 }
 
 /* Remove extra space from the last paragraph */
+
 .projects-page main ol > li > p:last-of-type {
   margin-bottom: 15px;
-}
-
-/* ===== Project Technology Information ===== */
-
-.projects-page main ol > li > p b {
-  color: #172554;
 }
 
 /* ===== Project Technology Information ===== */
@@ -497,63 +593,301 @@ nav a:hover {
 .projects-page main ol > li p b {
   color: #172554;
 }
+/* ===== Project View Button ===== */
 
-/* ==================================================
-   PROJECT HOVER EFFECT
-   ================================================== */
+.view-project {
+  align-self: flex-start;
+  margin-top: auto;
 
-/* Smooth transition before the hover state */
-.projects-page main ol > li {
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
-}
-
-/* Slightly lift the card when hovered */
-.projects-page main ol > li:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-}
-
-/* ==================================================
-   PROJECT LINKS
-   ================================================== */
-
-.projects-page main ol > li a {
-  display: inline-block;
-
-  margin-top: 5px;
   padding: 9px 16px;
 
   background-color: #2563eb;
   color: white;
 
+  border: none;
   border-radius: 6px;
 
-  text-decoration: none;
+  font-family: inherit;
+  font-size: 14px;
   font-weight: 600;
+
+  cursor: pointer;
 
   transition:
     background-color 0.3s,
     transform 0.3s;
 }
 
-/* Project link hover effect */
-.projects-page main ol > li a:hover {
+/* Project View Button Hover */
+
+.view-project:hover {
   background-color: #1d4ed8;
   transform: scale(1.05);
 }
-/* Arrange card content vertically */
-.projects-page main ol > li {
-  display: flex;
-  flex-direction: column;
+/* ==================================================
+   PROJECT SEARCH & FILTERS
+================================================== */
+
+/* ===== Project Controls ===== */
+
+.project-controls {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px 0;
+  text-align: center;
 }
 
-/* Keep the button at the bottom of every card */
-.projects-page main ol > li a {
-  margin-top: auto;
-  align-self: flex-start;
+/* ===== Search Label ===== */
+
+.project-controls label {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #172554;
+  font-size: 18px;
+  font-weight: 600;
+}
+/* ===== Project Count ===== */
+.project-count {
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+/* ===== Search Input ===== */
+
+#project-search {
+  width: 100%;
+  max-width: 600px;
+
+  padding: 12px 15px;
+
+  background-color: #f8fafc;
+  color: #334155;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+/* Search input focus */
+
+#project-search:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* ===== Project Filter Buttons ===== */
+
+.project-filters {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+/* Filter button */
+
+.filter-btn {
+  padding: 8px 16px;
+
+  background-color: #f8fafc;
+  color: #334155;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s,
+    transform 0.3s;
+}
+
+/* Filter button hover */
+
+.filter-btn:hover {
+  background-color: #e0e7ff;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+
+  transform: translateY(-2px);
+}
+
+/* Active filter */
+
+.filter-btn.active {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* Keep active button darker on hover */
+
+.filter-btn.active:hover {
+  background-color: #1d4ed8;
+  color: white;
+}
+/* ==================================================
+   PROJECT DETAILS MODAL
+================================================== */
+
+/* ===== Modal Overlay ===== */
+.project-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 15px;
+  background-color: rgba(15, 23, 42, 0.55);
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 2000;
+}
+
+/* ===== Modal Content ===== */
+.project-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  padding: 25px 20px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.2);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* ===== Modal Title ===== */
+.project-modal-content h2 {
+  margin: 0 40px 15px 0;
+  color: #172554;
+  font-size: 23px;
+}
+
+/* ===== Modal Description ===== */
+.project-modal-content p {
+  margin: 0 0 15px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.project-modal-content p b {
+  color: #172554;
+}
+
+/* ===== Modal Close Button ===== */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  color: #475569;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 0.3s,
+    transform 0.3s;
+}
+
+.modal-close:hover {
+  color: #dc2626;
+  transform: scale(1.1);
+}
+
+/* ===== Modal Project Link ===== */
+.project-modal-content > a {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 9px 16px;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+.project-modal-content > a:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+/* ==================================================
+   PROJECT VIEW BUTTON
+================================================== */
+
+.view-project {
+  display: inline-block;
+
+  margin-top: 10px;
+  padding: 9px 16px;
+
+  background-color: #2563eb;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+.view-project:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+/* ===== No Projects Message ===== */
+.projects-page main ol > li.no-projects {
+  display: block;
+  grid-column: 1 / -1;
+  padding: 30px 20px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.projects-page main ol > li.no-projects p {
+  margin: 0;
+  color: #475569;
+  font-size: 15px;
 }
 /* ==================================================
    RESUME PAGE
@@ -825,20 +1159,41 @@ footer a:hover {
 }
 /* ==================================================
    TABLET
-   ================================================== */
+================================================== */
 
 @media (min-width: 768px) {
   /* ===== Tablet Navigation ===== */
 
-nav {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
+  #menu-btn {
+    display: none;
+  }
 
-  max-width: none;
-  padding: 12px 15px;
-}
+  nav {
+    display: flex;
+
+    position: static;
+
+    width: 90%;
+    height: auto;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    max-width: none;
+    padding: 12px 15px;
+
+    background-color: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+
+    margin: 0 auto;
+  }
 
   /* ===== Tablet Hero ===== */
 
@@ -858,15 +1213,16 @@ nav {
     width: 250px;
     height: 250px;
   }
+
   /* ===== Tablet Hero Headings ===== */
 
-.home-text h2 {
-  font-size: 36px;
-}
+  .home-text h2 {
+    font-size: 36px;
+  }
 
-.home-text h3 {
-  font-size: 22px;
-}
+  .home-text h3 {
+    font-size: 22px;
+  }
 
   /* ===== Tablet Skills Grid ===== */
 
@@ -875,33 +1231,32 @@ nav {
   }
 
   /* ===== Tablet Education Timeline ===== */
-  /* Give education entries more breathing room */
+
   .education-page main > ul {
     max-width: 850px;
     padding: 40px 30px 60px 65px;
   }
 
-  /* Move timeline slightly outward */
   .education-page main > ul::before {
     left: 30px;
   }
 
-  /* Move checkpoints with the timeline */
   .education-page main > ul > li::before {
     left: -42px;
   }
 
-  /* Increase card spacing */
   .education-page main > ul > li {
     padding: 25px 28px;
   }
 
-  /* Make education text slightly larger */
   .education-page main > ul > li > ul > li {
     font-size: 16px;
   }
-  /* ===== Tablet Projects Grid ===== */
 
+  /* ===== Tablet Projects Grid ===== */
+  .project-controls {
+    padding: 40px 30px 0;
+  }
   .projects-page main ol {
     grid-template-columns: repeat(2, 1fr);
 
@@ -915,11 +1270,13 @@ nav {
   .projects-page main ol > li {
     padding: 25px 28px;
   }
+
   /* ===== Tablet Resume Section ===== */
 
   .resume-section {
     padding: 50px 30px;
   }
+
   /* ===== Tablet Contact Page ===== */
 
   .contact-page main {
@@ -929,11 +1286,13 @@ nav {
   .contact-page form {
     padding: 35px 30px;
   }
+
   /* ===== Tablet Contact Heading ===== */
 
   .contact-page main > h2 {
     font-size: 30px;
   }
+
   /* ===== Tablet Footer ===== */
 
   footer {
@@ -943,7 +1302,7 @@ nav {
 
 /* ==================================================
    DESKTOP
-   ================================================== */
+================================================== */
 
 @media (min-width: 1024px) {
   /* ===== Desktop Navigation ===== */
@@ -973,15 +1332,16 @@ nav {
     font-size: 18px;
     line-height: 1.7;
   }
+
   /* ===== Desktop Hero Headings ===== */
 
-.home-text h2 {
-  font-size: 40px;
-}
+  .home-text h2 {
+    font-size: 40px;
+  }
 
-.home-text h3 {
-  font-size: 24px;
-}
+  .home-text h3 {
+    font-size: 24px;
+  }
 
   /* ===== Desktop Skills Grid ===== */
 
@@ -991,28 +1351,31 @@ nav {
 
   /* ===== Desktop Education Timeline ===== */
 
-  /* Wider education area on desktop */
   .education-page main > ul {
     max-width: 900px;
     padding-top: 50px;
   }
 
-  /* More comfortable education cards */
   .education-page main > ul > li {
     padding: 28px 32px;
   }
 
-  /* Slightly larger section titles */
   .education-page main > ul > li > strong,
   .education-page main > ul > li > b {
     font-size: 22px;
   }
-  /* ===== Desktop Projects Grid ===== */
 
+  /* ===== Desktop Projects Grid ===== */
+  .project-controls {
+    padding: 50px 40px 0;
+  }
   .projects-page main ol {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+
     gap: 30px;
+
     max-width: 1100px;
+
     padding: 60px 40px;
   }
 
@@ -1033,11 +1396,13 @@ nav {
   .projects-page main ol > li p {
     font-size: 16px;
   }
+
   /* ===== Desktop Resume Section ===== */
 
   .resume-section {
     padding: 60px 40px;
   }
+
   /* ===== Desktop Contact Page ===== */
 
   .contact-page main {
@@ -1047,11 +1412,13 @@ nav {
   .contact-page form {
     padding: 40px 35px;
   }
+
   /* ===== Desktop Contact Heading ===== */
 
   .contact-page main > h2 {
     font-size: 32px;
   }
+
   /* ===== Desktop Footer ===== */
 
   footer {

@@ -1,13 +1,15 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects</title>
     <link rel="stylesheet" href="../style.css" />
+    <script src="../script.js" defer></script>
   </head>
   <body class="projects-page">
-    <a class="home-link" href="../index.html">Home</a>
     <header>
+      <button id="menu-btn">☰</button>
+      <a class="home-link" href="../index.html">Home</a>
       <h1>Projects</h1>
       <nav>
         <a href="about.html">About Me</a>
@@ -18,54 +20,102 @@
       </nav>
     </header>
     <main>
-      <ol>
-        <li>
-          <h3>Tic Tac Toe</h3>
+      <!-- ===== Project Search ===== -->
+
+      <section class="project-controls">
+        <label for="project-search">Search Projects</label>
+
+        <input
+          type="search"
+          id="project-search"
+          placeholder="Search by project name or technology..."
+        />
+        <p id="project-count" class="project-count"></p>
+
+        <!-- ===== Project Filters ===== -->
+
+        <section class="project-filters" aria-label="Project filters">
+          <button
+            type="button"
+            class="filter-btn active"
+            data-category="All"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            class="filter-btn"
+            data-category="Web"
+            aria-pressed="false"
+          >
+            Web
+          </button>
+          <button
+            type="button"
+            class="filter-btn"
+            data-category="JavaScript"
+            aria-pressed="false"
+          >
+            JavaScript
+          </button>
+          <button
+            type="button"
+            class="filter-btn"
+            data-category="React"
+            aria-pressed="false"
+          >
+            React
+          </button>
+          <button
+            type="button"
+            class="filter-btn"
+            data-category="Other"
+            aria-pressed="false"
+          >
+            Other
+          </button>
+        </section>
+      </section>
+
+      <!-- ===== Dynamic Project List ===== -->
+
+      <ol id="projects-list"></ol>
+      <!-- ===== Project Details Modal ===== -->
+
+      <!-- ===== Project Details Modal ===== -->
+
+      <section
+        id="project-modal"
+        class="project-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <article class="project-modal-content">
+          <button
+            id="modal-close"
+            class="modal-close"
+            type="button"
+            aria-label="Close project details"
+          >
+            &times;
+          </button>
+
+          <h2 id="modal-title"></h2>
+
+          <p id="modal-description"></p>
 
           <p>
-            A simple console-based Tic Tac Toe game implemented in C++. It
-            allows two players to take turns and play the classic game.
+            <b>Technologies:</b>
+            <strong id="modal-technologies"></strong>
           </p>
 
-          <p><b>Technologies:</b> C++</p>
-
-          <a href="#">View Project</a>
-        </li>
-        <li>
-          <h3>Number Conversion System</h3>
-          <p>
-            A console-based system for converting numbers between different
-            bases (binary, octal, decimal, hexadecimal).
-          </p>
-          <p><b>Technologies:</b> C++</p>
-          <a href="#">View Project</a>
-        </li>
-        <li>
-          <h3>Hospital Management System :</h3>
-
-          <p>
-            A basic console based hospital management system implemented in C++.
-            It allows for managing patient records, appointments, and medical
-            history.
-          </p>
-          <p>
-            I have Implemented a custom heap / priority_queue to fetch the most
-            recent appointment in future. It converts date and time into a key
-            and use that key to track the nearest appointment.
-          </p>
-          <p><b>Technologies:</b> C++ , DSA</p>
-          <a href="#">View Project</a>
-        </li>
-        <li>
-          <h3>Personal Portfolio</h3>
-          <p>
-            A personal portfolio website built from scratch while learning HTML,
-            CSS, and web development fundamentals.
-          </p>
-          <p><b>Technologies:</b> HTML, CSS</p>
-          <a href="#">View Project</a>
-        </li>
-      </ol>
+          <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer">
+            View Project
+          </a>
+        </article>
+      </section>
     </main>
     <footer>
       <p>&copy; Rishabh_Pareek. All rights reserved.</p>
