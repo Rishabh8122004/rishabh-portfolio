@@ -5,31 +5,59 @@ console.log("JavaScript file loaded");
 
 const themeToggle = document.querySelector("#theme-toggle");
 
-/* Apply the saved theme when the page loads */
+/* ---------- Apply Saved Theme ---------- */
+
 if (localStorage.getItem("theme") === "dark") {
+
     document.documentElement.classList.add("dark-mode");
     document.body.classList.add("dark-mode");
 
     if (themeToggle) {
-        themeToggle.textContent = "☀️";
+        themeToggle.setAttribute("aria-label", "Switch to light mode");
+        themeToggle.setAttribute("aria-pressed", "true");
     }
 }
 
-/* Toggle and save the selected theme */
+/* ---------- Toggle Theme ---------- */
+
 if (themeToggle) {
+
     themeToggle.addEventListener("click", function () {
 
         document.documentElement.classList.toggle("dark-mode");
         document.body.classList.toggle("dark-mode");
 
-        if (document.body.classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-            themeToggle.textContent = "☀️";
-        } else {
-            localStorage.setItem("theme", "light");
-            themeToggle.textContent = "🌙";
-        }
+        const darkModeActive =
+            document.body.classList.contains("dark-mode");
 
+        if (darkModeActive) {
+
+            localStorage.setItem("theme", "dark");
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to light mode"
+            );
+
+            themeToggle.setAttribute(
+                "aria-pressed",
+                "true"
+            );
+
+        } else {
+
+            localStorage.setItem("theme", "light");
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to dark mode"
+            );
+
+            themeToggle.setAttribute(
+                "aria-pressed",
+                "false"
+            );
+        }
     });
 }
 /* ==================================================

@@ -98,7 +98,132 @@ nav {
 nav.show {
   display: flex;
 }
-/* ===== Navigation Links ===== */
+/* ==================================================
+   THEME TOGGLE
+   Premium Pill Switch
+   MOBILE-FIRST
+================================================== */
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 66px;
+    height: 36px;
+
+    padding: 0 7px;
+
+    background-color: #dbeafe;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.12);
+
+    z-index: 1000;
+
+    overflow: hidden;
+
+    transition:
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.25s ease;
+}
+
+
+/* ==================================================
+   THEME ICONS
+================================================== */
+
+.theme-icon {
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    font-size: 14px;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.theme-sun {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.theme-moon {
+    opacity: 0.45;
+    transform: scale(0.9);
+}
+
+
+/* ==================================================
+   SLIDING KNOB
+================================================== */
+
+.theme-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+
+    width: 28px;
+    height: 28px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 50%;
+
+    box-shadow:
+        0 3px 8px rgba(15, 23, 42, 0.18);
+
+    z-index: 2;
+
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* ==================================================
+   LIGHT MODE HOVER
+================================================== */
+
+#theme-toggle:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 16px rgba(15, 23, 42, 0.16);
+}
+
+
+/* ==================================================
+   BUTTON PRESS
+================================================== */
+
+#theme-toggle:active {
+    transform: translateY(0) scale(0.97);
+}
+
 /* ==================================================
    MOBILE MENU BUTTON
 ================================================== */
@@ -2284,4 +2409,56 @@ body.dark-mode footer a {
 
 body.dark-mode footer a:hover {
     color: #93c5fd;
+}
+/* ==================================================
+   DARK MODE for dark mode button
+================================================== */
+
+body.dark-mode #theme-toggle {
+    background-color: #263449;
+
+    border-color: #3a485c;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.28);
+}
+
+
+/* ---------- Move Knob to Moon ---------- */
+
+body.dark-mode #theme-toggle .theme-knob {
+    transform: translateX(30px);
+
+    background-color: #202b3d;
+
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 10px rgba(96, 165, 250, 0.28),
+        0 3px 8px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ---------- Dark Mode Icons ---------- */
+
+body.dark-mode #theme-toggle .theme-sun {
+    opacity: 0.35;
+    transform: scale(0.9);
+}
+
+body.dark-mode #theme-toggle .theme-moon {
+    opacity: 1;
+    transform: scale(1.05);
+
+    filter:
+        drop-shadow(0 0 5px rgba(147, 197, 253, 0.45));
+}
+
+
+/* ==================================================
+   DARK MODE HOVER
+================================================== */
+
+body.dark-mode #theme-toggle:hover {
+    background-color: #30415a;
 }
