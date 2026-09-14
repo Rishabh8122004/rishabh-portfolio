@@ -1,47 +1,50 @@
 /* ==================================================
    GLOBAL STYLES
-   ================================================== */
-/* Prevent dark-mode flash during page load */
+================================================== */
+
+/* ---------- Prevent Dark-Mode Flash ---------- */
 html.dark-mode body {
-    background:
-        radial-gradient(circle at 15% 20%, #263957 0%, transparent 40%),
-        radial-gradient(circle at 85% 75%, #293653 0%, transparent 40%),
-        linear-gradient(135deg, #1b2638, #202b3d);
+  background:
+    radial-gradient(circle at 15% 20%, #263957 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, #293653 0%, transparent 40%),
+    linear-gradient(135deg, #1b2638, #202b3d);
 }
-/* Prevent navigation flash during page load */
+
+/* ---------- Prevent Navigation Flash ---------- */
 html.dark-mode nav {
-    background-color: #202b3d;
-    border-color: #334155;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  background-color: #202b3d;
+  border-color: #334155;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 html.dark-mode nav a {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
 
 html.dark-mode nav a:hover,
 html.dark-mode nav a.active {
-    background-color: #263449;
-    color: #60a5fa;
+  background-color: #263449;
+  color: #60a5fa;
 }
-/* ===== Website Background ===== */
+
+/* ---------- Website Background ---------- */
 body {
   background:
     radial-gradient(circle at 15% 20%, #bfdbfe 0%, transparent 40%),
     radial-gradient(circle at 85% 75%, #c7d2fe 0%, transparent 40%),
     linear-gradient(135deg, #e0f2fe, #eef2ff);
 }
+
+
 /* ==================================================
    HEADER
-   ================================================== */
+================================================== */
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-/* ===== Header Heading ===== */
 
 h1 {
   color: #172554;
@@ -53,7 +56,6 @@ h1 {
   margin: 30px 0;
 }
 
-/* ===== Dynamic Greeting ===== */
 #greeting {
   display: inline-block;
   margin: 0 0 12px;
@@ -65,164 +67,139 @@ h1 {
   font-weight: 600;
   border: 1px solid #93c5fd;
 }
+
+
 /* ==================================================
    NAVIGATION
-   ================================================== */
-
-/* ===== Mobile Navigation ===== */
+   MOBILE-FIRST
+================================================== */
 
 nav {
   display: none;
-
   position: fixed;
   top: 0;
   left: 0;
-
   width: 30%;
   height: 100vh;
-
   flex-direction: column;
-
   padding: 80px 15px 20px;
-
   background-color: #f8fafc;
-
   border-right: 1px solid #e2e8f0;
   border-radius: 0;
-
   box-shadow: 4px 0 15px rgba(15, 23, 42, 0.12);
-
   z-index: 999;
 }
 
 nav.show {
   display: flex;
 }
+
+nav a {
+  padding: 11px 14px;
+  color: #334155;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+  background-color: #e0e7ff;
+  color: #1d4ed8;
+}
+
+nav a:hover {
+  transform: translateX(4px);
+}
+
+
 /* ==================================================
    THEME TOGGLE
-   Premium Pill Switch
+   PREMIUM PILL SWITCH
    MOBILE-FIRST
 ================================================== */
 
 #theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 66px;
-    height: 36px;
-
-    padding: 0 7px;
-
-    background-color: #dbeafe;
-
-    border: 1px solid #bfdbfe;
-    border-radius: 50px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 4px 12px rgba(15, 23, 42, 0.12);
-
-    z-index: 1000;
-
-    overflow: hidden;
-
-    transition:
-        background-color 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease,
-        transform 0.25s ease;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 66px;
+  height: 36px;
+  padding: 0 7px;
+  background-color: #dbeafe;
+  border: 1px solid #bfdbfe;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  z-index: 1000;
+  overflow: hidden;
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.25s ease;
 }
 
-
-/* ==================================================
-   THEME ICONS
-================================================== */
-
 .theme-icon {
-    position: relative;
-    z-index: 3;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 20px;
-    height: 20px;
-
-    font-size: 14px;
-
-    transition:
-        opacity 0.35s ease,
-        transform 0.35s ease,
-        filter 0.35s ease;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
 
 .theme-sun {
-    opacity: 1;
-    transform: scale(1.05);
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .theme-moon {
-    opacity: 0.45;
-    transform: scale(0.9);
+  opacity: 0.45;
+  transform: scale(0.9);
 }
-
-
-/* ==================================================
-   SLIDING KNOB
-================================================== */
 
 .theme-knob {
-    position: absolute;
-    top: 3px;
-    left: 3px;
-
-    width: 28px;
-    height: 28px;
-
-    background-color: #ffffff;
-
-    border: 1px solid #bfdbfe;
-    border-radius: 50%;
-
-    box-shadow:
-        0 3px 8px rgba(15, 23, 42, 0.18);
-
-    z-index: 2;
-
-    transition:
-        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        background-color 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 28px;
+  height: 28px;
+  background-color: #ffffff;
+  border: 1px solid #bfdbfe;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.18);
+  z-index: 2;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
-
-
-/* ==================================================
-   LIGHT MODE HOVER
-================================================== */
 
 #theme-toggle:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 7px 16px rgba(15, 23, 42, 0.16);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(15, 23, 42, 0.16);
 }
-
-
-/* ==================================================
-   BUTTON PRESS
-================================================== */
 
 #theme-toggle:active {
-    transform: translateY(0) scale(0.97);
+  transform: translateY(0) scale(0.97);
 }
+
 
 /* ==================================================
    MOBILE MENU BUTTON
@@ -230,61 +207,25 @@ nav.show {
 
 #menu-btn {
   display: block;
-
   position: fixed;
   top: 20px;
   left: 20px;
-
   padding: 8px 12px;
-
   background-color: #f8fafc;
   color: #172554;
-
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-
   font-size: 24px;
   cursor: pointer;
-
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-
   z-index: 1000;
 }
-nav a {
-  padding: 11px 14px;
 
-  color: #334155;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
 
-  border-radius: 8px;
-
-  transition:
-    background-color 0.3s,
-    color 0.3s,
-    transform 0.3s;
-}
-/* ===== Active Navigation Link ===== */
-
-nav a.active {
-  background-color: #e0e7ff;
-  color: #1d4ed8;
-}
-
-/* ===== Navigation Link Hover ===== */
-
-nav a:hover {
-  background-color: #e0e7ff;
-  color: #1d4ed8;
-
-  transform: translateX(4px);
-}
 /* ==================================================
    BACK TO TOP BUTTON
 ================================================== */
 
-/* ===== Back to Top ===== */
 #back-to-top {
   display: none;
   position: fixed;
@@ -292,50 +233,41 @@ nav a:hover {
   bottom: 20px;
   width: 42px;
   height: 42px;
-
   background-color: #172554;
   color: #f8fafc;
-
   border: 1px solid #2563eb;
   border-radius: 50%;
-
   font-size: 20px;
   font-weight: 600;
   line-height: 1;
-
   cursor: pointer;
   z-index: 999;
-
   box-shadow: 0 5px 15px #2563eb;
-
   transition:
     background-color 0.3s,
     transform 0.3s,
     box-shadow 0.3s;
 }
 
-/* ===== Back to Top Hover ===== */
 #back-to-top:hover {
   background-color: #2563eb;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
+
+
 /* ==================================================
-   HOME / HERO SECTION
-   ================================================== */
+   HOME PAGE
+================================================== */
 
 .home-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-
   padding: 40px 20px;
-
   text-align: center;
 }
-
-/* ===== Hero Text ===== */
 
 .home-text {
   max-width: 700px;
@@ -345,18 +277,14 @@ nav a:hover {
   color: #334155;
   font-size: 16px;
   line-height: 1.6;
-
   margin-bottom: 20px;
 }
-/* ===== Hero Name ===== */
 
 .home-text h2 {
   margin: 0;
   color: #172554;
   font-size: 32px;
 }
-
-/* ===== Hero Professional Title ===== */
 
 .home-text h3 {
   margin: 5px 0 15px;
@@ -365,12 +293,9 @@ nav a:hover {
   font-weight: 500;
 }
 
-/* ===== Hero Image ===== */
-
 .my_profile {
   width: 200px;
   height: 200px;
-
   object-fit: cover;
   border-radius: 50%;
 }
@@ -381,25 +306,18 @@ nav a:hover {
 
 .my_name {
   margin-top: 10px;
-
   font-size: 14px;
   font-weight: normal;
 }
 
-/* ===== Hero Resume Button ===== */
-
 .home-text > a {
   display: inline-block;
-
   padding: 12px 24px;
   margin-top: 10px;
-
   background-color: #2563eb;
   color: white;
-
   text-decoration: none;
   border-radius: 6px;
-
   transition:
     background-color 0.3s,
     transform 0.3s;
@@ -410,13 +328,10 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* ===== Social Links ===== */
-
 .social-link {
   color: #2563eb;
   text-decoration: none;
   font-weight: 600;
-
   transition: color 0.3s;
 }
 
@@ -424,29 +339,20 @@ nav a:hover {
   color: #1d4ed8;
 }
 
-/* ==================================================
-   HOME PAGE LINK
-================================================== */
-
+/* Retained because the current GitHub version still contains the Home link. */
 .home-link {
   position: fixed;
   top: 20px;
   right: 20px;
-
   padding: 8px 14px;
-
   background-color: #f8fafc;
   color: #172554;
-
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
-
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-
   z-index: 1000;
 }
 
@@ -455,41 +361,33 @@ nav a:hover {
   color: #1d4ed8;
 }
 
+
 /* ==================================================
    ABOUT PAGE
-   ================================================== */
+================================================== */
 
 .about-page main {
   width: 100%;
 }
 
-/* ===== About Content ===== */
-
 .about-content {
   box-sizing: border-box;
-
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* ===== About Paragraphs ===== */
-
 .about-content p {
   color: #334155;
   font-size: 16px;
   line-height: 1.7;
-
   margin-bottom: 25px;
 }
-
-/* ===== About Links ===== */
 
 .about-content a {
   color: #2563eb;
   font-weight: 600;
   text-decoration: none;
-
   transition: color 0.3s;
 }
 
@@ -498,20 +396,18 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ===== About Heading ===== */
-
 .about-page h1 {
   color: #172554;
   font-size: 32px;
   text-align: center;
-
   margin: 30px 0;
 }
 
-/* ================================================== 
-SKILLS PAGE 
+
+/* ==================================================
+   SKILLS PAGE
 ================================================== */
-/* ===== Skills Grid ===== */
+
 .skills-page main ul {
   display: grid;
   grid-template-columns: 1fr;
@@ -520,7 +416,8 @@ SKILLS PAGE
   margin: 0 auto;
   padding: 40px 20px;
   list-style: none;
-} /* ===== Skill Cards ===== */
+}
+
 .skills-page main li {
   position: relative;
   padding: 25px 20px;
@@ -528,18 +425,20 @@ SKILLS PAGE
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   color: #334155;
-  text-align: center; /* Scroll animation starting state */
+  text-align: center;
   opacity: 0;
   transform: scale(0.88);
   transition:
     opacity 0.6s ease,
     transform 0.6s ease,
     box-shadow 0.3s ease;
-} /* ===== Skill Card Visible State ===== */
+}
+
 .skills-page main li.show-skill {
   opacity: 1;
   transform: scale(1);
-} /* ===== Skill Name ===== */
+}
+
 .skills-page main li h3 {
   position: relative;
   display: inline-block;
@@ -548,7 +447,8 @@ SKILLS PAGE
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.5px;
-} /* ===== Skill Name Accent ===== */
+}
+
 .skills-page main li h3::after {
   content: "";
   position: absolute;
@@ -559,17 +459,20 @@ SKILLS PAGE
   background-color: #2563eb;
   border-radius: 3px;
   transform: translateX(-50%);
-} /* ===== Skill Description ===== */
+}
+
 .skills-page main li p {
   margin: 10px 0;
   color: #475569;
   font-size: 15px;
   line-height: 1.6;
-} /* ===== Skill Card Hover ===== */
+}
+
 .skills-page main li.show-skill:hover {
   transform: scale(1.03) translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-} /* ===== Skills Links ===== */
+}
+
 .skills-page main li a {
   display: inline-block;
   margin-top: 8px;
@@ -580,16 +483,17 @@ SKILLS PAGE
     color 0.3s ease,
     transform 0.3s ease;
 }
+
 .skills-page main li a:hover {
   color: #1d4ed8;
   text-decoration: underline;
   transform: translateY(-2px);
 }
 
+
 /* ==================================================
-   EDUCATION
-   Soft timeline + education cards
-   ================================================== */
+   EDUCATION PAGE
+================================================== */
 
 .education-page main > ul {
   position: relative;
@@ -599,7 +503,6 @@ SKILLS PAGE
   list-style: none;
 }
 
-/* Vertical timeline */
 .education-page main > ul::before {
   content: "";
   position: absolute;
@@ -610,117 +513,88 @@ SKILLS PAGE
   background-color: #dbe4f0;
 }
 
-/* Each education entry */
 .education-page main > ul > li {
   position: relative;
   margin-bottom: 28px;
   padding: 22px 20px;
-
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-
   box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
-}
-
-/* Timeline checkpoint */
-.education-page main > ul > li::before {
-  content: "";
-  position: absolute;
-  left: -32px;
-  top: 27px;
-
-  width: 12px;
-  height: 12px;
-
-  background-color: #2563eb;
-  border: 3px solid white;
-  border-radius: 50%;
-
-  box-shadow: 0 0 0 2px #dbe4f0;
-}
-
-/* Education section title */
-.education-page main > ul > li > strong,
-.education-page main > ul > li > b {
-  display: block;
-
-  margin-bottom: 14px;
-
-  color: #172554;
-  font-size: 21px;
-  font-weight: bold;
-}
-
-/* Information inside each education entry */
-.education-page main > ul > li > ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-/* Individual information points */
-.education-page main > ul > li > ul > li {
-  margin-bottom: 9px;
-
-  color: #475569;
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* Remove unnecessary spacing from the last point */
-.education-page main > ul > li > ul > li:last-child {
-  margin-bottom: 0;
-}
-
-/* Links inside education */
-.education-page main a {
-  color: #2563eb;
-  font-weight: 600;
-  text-decoration: none;
-
-  transition: color 0.3s;
-}
-
-/* Link hover effect */
-.education-page main a:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
-}
-
-/* ==================================================
-   EDUCATION HOVER EFFECT
-   ================================================== */
-
-.education-page main > ul > li {
   transition:
     transform 0.3s,
     box-shadow 0.3s;
 }
 
-/* Slight lift when the user hovers over an entry */
+.education-page main > ul > li::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 27px;
+  width: 12px;
+  height: 12px;
+  background-color: #2563eb;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #dbe4f0;
+}
+
+.education-page main > ul > li > strong,
+.education-page main > ul > li > b {
+  display: block;
+  margin-bottom: 14px;
+  color: #172554;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.education-page main > ul > li > ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.education-page main > ul > li > ul > li {
+  margin-bottom: 9px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.education-page main > ul > li > ul > li:last-child {
+  margin-bottom: 0;
+}
+
+.education-page main a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.education-page main a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
 .education-page main > ul > li:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
+
+
 /* ==================================================
    PROJECTS PAGE
 ================================================== */
-
-/* ===== Projects Grid ===== */
 
 .projects-page main ol {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-
   list-style: none;
 }
-
-/* ===== Project Cards ===== */
 
 .projects-page main ol > li {
   display: flex;
@@ -736,81 +610,61 @@ SKILLS PAGE
     box-shadow 0.3s;
 }
 
-/* ===== Project Hover Effect ===== */
-
 .projects-page main ol > li:hover {
   transform: translateY(-5px);
-
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
-/* ===== Project Titles ===== */
-
 .projects-page main ol > li h3 {
   margin: 0 0 12px;
-
   color: #172554;
   font-size: 21px;
 }
 
-/* ===== Project Descriptions ===== */
-
 .projects-page main ol > li > p {
   margin: 0 0 12px;
-
   color: #475569;
   font-size: 15px;
   line-height: 1.7;
 }
 
-/* Remove extra space from the last paragraph */
-
 .projects-page main ol > li > p:last-of-type {
   margin-bottom: 15px;
 }
-
-/* ===== Project Technology Information ===== */
 
 .projects-page main ol > li p strong,
 .projects-page main ol > li p b {
   color: #172554;
 }
-/* ===== Project View Button ===== */
 
+/* Consolidated from the duplicate definitions. */
 .view-project {
   align-self: flex-start;
-  margin-top: auto;
-
+  display: inline-block;
+  margin-top: 10px;
   padding: 9px 16px;
-
   background-color: #2563eb;
   color: white;
-
   border: none;
   border-radius: 6px;
-
   font-family: inherit;
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition:
     background-color 0.3s,
     transform 0.3s;
 }
 
-/* Project View Button Hover */
-
 .view-project:hover {
   background-color: #1d4ed8;
   transform: scale(1.05);
 }
+
+
 /* ==================================================
    PROJECT SEARCH & FILTERS
 ================================================== */
-
-/* ===== Project Controls ===== */
 
 .project-controls {
   max-width: 1000px;
@@ -819,84 +673,59 @@ SKILLS PAGE
   text-align: center;
 }
 
-/* ===== Search Label ===== */
-
 .project-controls label {
   display: block;
   margin-bottom: 10px;
-
   color: #172554;
   font-size: 18px;
   font-weight: 600;
 }
-/* ===== Project Count ===== */
+
 .project-count {
   margin: 10px 0 0;
   color: #64748b;
   font-size: 14px;
   font-weight: 500;
 }
-/* ===== Search Input ===== */
 
 #project-search {
   width: 100%;
   max-width: 600px;
-
   padding: 12px 15px;
-
   background-color: #f8fafc;
   color: #334155;
-
   border: 1px solid #cbd5e1;
   border-radius: 8px;
-
   font-size: 15px;
-
   outline: none;
-
   transition:
     border-color 0.3s,
     box-shadow 0.3s;
 }
 
-/* Search input focus */
-
 #project-search:focus {
   border-color: #2563eb;
-
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
-/* ===== Project Filter Buttons ===== */
-
 .project-filters {
   display: flex;
-
   justify-content: center;
   align-items: center;
-
   flex-wrap: wrap;
   gap: 10px;
-
   margin-top: 20px;
 }
 
-/* Filter button */
-
 .filter-btn {
   padding: 8px 16px;
-
   background-color: #f8fafc;
   color: #334155;
-
   border: 1px solid #cbd5e1;
   border-radius: 6px;
-
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition:
     background-color 0.3s,
     color 0.3s,
@@ -904,17 +733,12 @@ SKILLS PAGE
     transform 0.3s;
 }
 
-/* Filter button hover */
-
 .filter-btn:hover {
   background-color: #e0e7ff;
   color: #1d4ed8;
   border-color: #93c5fd;
-
   transform: translateY(-2px);
 }
-
-/* Active filter */
 
 .filter-btn.active {
   background-color: #2563eb;
@@ -922,17 +746,16 @@ SKILLS PAGE
   border-color: #2563eb;
 }
 
-/* Keep active button darker on hover */
-
 .filter-btn.active:hover {
   background-color: #1d4ed8;
   color: white;
 }
+
+
 /* ==================================================
    PROJECT DETAILS MODAL
 ================================================== */
 
-/* ===== Modal Overlay ===== */
 .project-modal {
   display: none;
   position: fixed;
@@ -947,7 +770,6 @@ SKILLS PAGE
   z-index: 2000;
 }
 
-/* ===== Modal Content ===== */
 .project-modal-content {
   position: relative;
   width: 100%;
@@ -962,14 +784,12 @@ SKILLS PAGE
   overflow-y: auto;
 }
 
-/* ===== Modal Title ===== */
 .project-modal-content h2 {
   margin: 0 40px 15px 0;
   color: #172554;
   font-size: 23px;
 }
 
-/* ===== Modal Description ===== */
 .project-modal-content p {
   margin: 0 0 15px;
   color: #475569;
@@ -981,7 +801,6 @@ SKILLS PAGE
   color: #172554;
 }
 
-/* ===== Modal Close Button ===== */
 .modal-close {
   position: absolute;
   top: 10px;
@@ -1004,7 +823,6 @@ SKILLS PAGE
   transform: scale(1.1);
 }
 
-/* ===== Modal Project Link ===== */
 .project-modal-content > a {
   display: inline-block;
   margin-top: 5px;
@@ -1023,38 +841,7 @@ SKILLS PAGE
   background-color: #1d4ed8;
   transform: scale(1.05);
 }
-/* ==================================================
-   PROJECT VIEW BUTTON
-================================================== */
 
-.view-project {
-  display: inline-block;
-
-  margin-top: 10px;
-  padding: 9px 16px;
-
-  background-color: #2563eb;
-  color: white;
-
-  border: none;
-  border-radius: 6px;
-
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition:
-    background-color 0.3s,
-    transform 0.3s;
-}
-
-.view-project:hover {
-  background-color: #1d4ed8;
-  transform: scale(1.05);
-}
-/* ===== No Projects Message ===== */
 .projects-page main ol > li.no-projects {
   display: block;
   grid-column: 1 / -1;
@@ -1071,11 +858,11 @@ SKILLS PAGE
   color: #475569;
   font-size: 15px;
 }
+
+
 /* ==================================================
    RESUME PAGE
-   ================================================== */
-
-/* ===== Resume Section ===== */
+================================================== */
 
 .resume-section {
   max-width: 700px;
@@ -1083,14 +870,12 @@ SKILLS PAGE
   padding: 40px 20px;
   text-align: center;
 }
-/* ===== Resume Heading ===== */
 
 .resume-section h2 {
   margin-bottom: 15px;
   color: #172554;
   font-size: 26px;
 }
-/* ===== Resume Summary ===== */
 
 .resume-section p {
   margin-bottom: 25px;
@@ -1098,54 +883,41 @@ SKILLS PAGE
   font-size: 16px;
   line-height: 1.7;
 }
-/* ===== Resume Button ===== */
 
 .resume-section > a {
   display: inline-block;
-
   padding: 12px 24px;
   margin-top: 10px;
-
   background-color: #2563eb;
   color: white;
-
   text-decoration: none;
   border-radius: 6px;
-
   transition:
     background-color 0.3s,
     transform 0.3s;
 }
 
-/* Resume Button Hover */
-
 .resume-section > a:hover {
   background-color: #1d4ed8;
   transform: scale(1.05);
 }
-/* ===== Resume Interaction Message ===== */
+
 #hero-message {
   display: none;
   width: fit-content;
   margin: 15px 0 0;
   padding: 10px 15px;
-
   background-color: #eff6ff;
   color: #172554;
-
   border-left: 4px solid #2563eb;
   border-radius: 6px;
-
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
-
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-
   animation: resumeMessageAppear 0.4s ease forwards;
 }
 
-/* ===== Resume Message Animation ===== */
 @keyframes resumeMessageAppear {
   from {
     opacity: 0;
@@ -1157,397 +929,263 @@ SKILLS PAGE
     transform: translateY(0);
   }
 }
+
+
 /* ==================================================
    CONTACT PAGE
    MOBILE-FIRST BASE
 ================================================== */
 
-/* ---------- Main Contact Area ---------- */
-
 .contact-page main {
-    width: 92%;
-    max-width: 760px;
-
-    margin: 0 auto;
-    padding: 40px 0 50px;
+  width: 92%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 0 50px;
 }
-
-/* ---------- Get in Touch Heading ---------- */
 
 .contact-page main > h2 {
-    margin: 0 0 12px;
-
-    color: #172554;
-
-    font-family: Arial, sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.2;
-
-    text-align: center;
-    letter-spacing: 0.3px;
+  margin: 0 0 12px;
+  color: #172554;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.3px;
 }
-
-/* ---------- Contact Introduction ---------- */
 
 .contact-page main > p {
-    max-width: 620px;
-
-    margin: 0 auto 30px;
-
-    color: #475569;
-
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.7;
-
-    text-align: center;
+  max-width: 620px;
+  margin: 0 auto 30px;
+  color: #475569;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: center;
 }
-
-
-/* ==================================================
-   CONTACT FORM
-================================================== */
 
 .contact-page form {
-    display: grid;
-    gap: 8px;
-
-    width: 100%;
-    box-sizing: border-box;
-
-    padding: 22px 18px;
-
-    background-color: #f8fafc;
-
-    border: 1px solid #dbe3ee;
-    border-radius: 14px;
-
-    box-shadow:
-        0 8px 24px rgba(15, 23, 42, 0.07),
-        0 2px 6px rgba(15, 23, 42, 0.04);
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 22px 18px;
+  background-color: #f8fafc;
+  border: 1px solid #dbe3ee;
+  border-radius: 14px;
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.07),
+    0 2px 6px rgba(15, 23, 42, 0.04);
 }
-
-
-/* ==================================================
-   FORM LABELS
-================================================== */
 
 .contact-page form > label {
-    margin-top: 8px;
-
-    color: #172554;
-
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.4;
+  margin-top: 8px;
+  color: #172554;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
 }
-
-
-/* ==================================================
-   TEXT INPUTS + TEXTAREA
-================================================== */
 
 .contact-page form input[type="text"],
 .contact-page form input[type="email"],
 .contact-page form input[type="tel"],
 .contact-page form textarea {
-    width: 100%;
-    box-sizing: border-box;
-
-    padding: 11px 13px;
-
-    background-color: #ffffff;
-    color: #172554;
-
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-
-    outline: none;
-
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background-color 0.25s ease;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 13px;
+  background-color: #ffffff;
+  color: #172554;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
-
-/* ---------- Placeholder ---------- */
 
 .contact-page form input::placeholder,
 .contact-page form textarea::placeholder {
-    color: #94a3b8;
+  color: #94a3b8;
 }
-
-/* ---------- Hover ---------- */
 
 .contact-page form input[type="text"]:hover,
 .contact-page form input[type="email"]:hover,
 .contact-page form input[type="tel"]:hover,
 .contact-page form textarea:hover {
-    border-color: #94a3b8;
+  border-color: #94a3b8;
 }
-
-/* ---------- Focus ---------- */
 
 .contact-page form input[type="text"]:focus,
 .contact-page form input[type="email"]:focus,
 .contact-page form input[type="tel"]:focus,
 .contact-page form textarea:focus {
-    border-color: #2563eb;
-
-    box-shadow:
-        0 0 0 3px rgba(37, 99, 235, 0.12);
-
-    background-color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  background-color: #ffffff;
 }
-
-/* ---------- Textarea ---------- */
 
 .contact-page form textarea {
-    min-height: 140px;
-    resize: vertical;
+  min-height: 140px;
+  resize: vertical;
 }
 
-
-/* ==================================================
-   VALIDATION MESSAGES
-================================================== */
-
 .contact-page .form-error {
-    min-height: 17px;
-
-    color: #dc2626;
-
-    font-size: 13px;
-    line-height: 1.4;
+  min-height: 17px;
+  color: #dc2626;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .contact-page .form-success {
-    min-height: 20px;
-
-    margin-top: 4px;
-
-    color: #15803d;
-
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.5;
-
-    text-align: center;
+  min-height: 20px;
+  margin-top: 4px;
+  color: #15803d;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
 }
-
-
-/* ==================================================
-   PREFERRED CONTACT METHOD
-================================================== */
-
-/* ---------- Heading ---------- */
 
 .contact-page form > p {
-    margin: 13px 0 4px;
-
-    color: #172554;
-
-    font-size: 14px;
-    font-weight: 700;
+  margin: 13px 0 4px;
+  color: #172554;
+  font-size: 14px;
+  font-weight: 700;
 }
-
-/* ---------- Radio Container ---------- */
 
 .contact-page form fieldset {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-
-    gap: 10px 16px;
-
-    margin: 0;
-    padding: 13px 14px;
-
-    background-color: #ffffff;
-
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 0;
+  padding: 13px 14px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
 }
-
-/* ---------- Radio Buttons ---------- */
 
 .contact-page form input[type="radio"] {
-    width: 16px;
-    height: 16px;
-
-    margin: 0;
-
-    accent-color: #2563eb;
-
-    cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #2563eb;
+  cursor: pointer;
 }
-
-/* ---------- Radio Labels ---------- */
 
 .contact-page form fieldset label {
-    margin: 0;
-
-    color: #334155;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    cursor: pointer;
+  margin: 0;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
-
-
-/* ==================================================
-   BUTTONS
-================================================== */
 
 .contact-page form > section {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-
-    gap: 10px;
-
-    margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 14px;
 }
-
-/* ---------- Button ---------- */
 
 .contact-page form button {
-    width: 100%;
-
-    padding: 11px 20px;
-
-    border: none;
-    border-radius: 8px;
-
-    background-color: #2563eb;
-    color: #ffffff;
-
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+  width: 100%;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
-
-/* ---------- Button Hover ---------- */
 
 .contact-page form button:hover {
-    background-color: #1d4ed8;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 6px 14px rgba(37, 99, 235, 0.22);
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.22);
 }
-
-/* ---------- Button Active ---------- */
 
 .contact-page form button:active {
-    transform: translateY(0);
-
-    box-shadow: none;
+  transform: translateY(0);
+  box-shadow: none;
 }
+
 
 /* ==================================================
    FOOTER
-   ================================================== */
-
-/* ===== Footer Container ===== */
+================================================== */
 
 footer {
   margin-top: 40px;
   padding: 25px 20px;
-
   background-color: #172554;
   color: white;
-
   text-align: center;
 }
-/* ===== Footer Links ===== */
 
 footer a {
   color: white;
   text-decoration: none;
   margin: 0 6px;
-
   transition: color 0.3s;
 }
-
-/* Footer Link Hover */
 
 footer a:hover {
   color: #93c5fd;
 }
+
+
 /* ==================================================
    TABLET
 ================================================== */
 
 @media (min-width: 768px) {
-  /* ===== Tablet Navigation ===== */
-
   #menu-btn {
     display: none;
   }
 
   nav {
     display: flex;
-
     position: static;
-
     width: 90%;
     height: auto;
-
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     gap: 25px;
-
     max-width: none;
     padding: 12px 15px;
-
     background-color: #f8fafc;
-
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-
     margin: 0 auto;
   }
-
-  /* ===== Tablet Hero ===== */
 
   .home-content {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     gap: 60px;
-
     text-align: left;
   }
-
-  /* ===== Tablet Hero Image ===== */
 
   .my_profile {
     width: 250px;
     height: 250px;
   }
-
-  /* ===== Tablet Hero Headings ===== */
 
   .home-text h2 {
     font-size: 36px;
@@ -1557,13 +1195,9 @@ footer a:hover {
     font-size: 22px;
   }
 
-  /* ===== Tablet Skills Grid ===== */
-
   .skills-page main ul {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  /* ===== Tablet Education Timeline ===== */
 
   .education-page main > ul {
     max-width: 850px;
@@ -1586,99 +1220,83 @@ footer a:hover {
     font-size: 16px;
   }
 
-  /* ===== Tablet Projects Grid ===== */
   .project-controls {
     padding: 40px 30px 0;
   }
+
   .projects-page main ol {
     grid-template-columns: repeat(2, 1fr);
-
     gap: 25px;
-
     padding: 50px 30px;
   }
-
-  /* ===== Tablet Project Cards ===== */
 
   .projects-page main ol > li {
     padding: 25px 28px;
   }
 
-  /* ===== Tablet Resume Section ===== */
-
   .resume-section {
     padding: 50px 30px;
   }
-  /* ===== Tablet Contact Page ===== */
+
   .contact-page main {
-        width: 90%;
-        padding: 50px 0 60px;
-    }
+    width: 90%;
+    padding: 50px 0 60px;
+  }
 
-    .contact-page main > h2 {
-        font-size: 30px;
-    }
+  .contact-page main > h2 {
+    font-size: 30px;
+  }
 
-    .contact-page main > p {
-        font-size: 16px;
-        margin-bottom: 32px;
-    }
+  .contact-page main > p {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
 
-    .contact-page form {
-        padding: 32px 30px;
-        border-radius: 16px;
-    }
+  .contact-page form {
+    padding: 32px 30px;
+    border-radius: 16px;
+  }
 
-    .contact-page form > section {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
+  .contact-page form > section {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .contact-page form button {
-        width: auto;
-        min-width: 120px;
-    }
+  .contact-page form button {
+    width: auto;
+    min-width: 120px;
+  }
 
-    .contact-page form fieldset {
-        gap: 10px 18px;
-    }
+  .contact-page form fieldset {
+    gap: 10px 18px;
+  }
 }
+
 
 /* ==================================================
    DESKTOP
 ================================================== */
 
 @media (min-width: 1024px) {
-  /* ===== Desktop Navigation ===== */
-
   nav {
     gap: 35px;
   }
 
-  /* ===== Desktop Hero ===== */
-
   .home-content {
     gap: 100px;
-
     padding: 70px 40px;
   }
-
-  /* ===== Desktop Hero Image ===== */
 
   .my_profile {
     width: 300px;
     height: 300px;
   }
 
-  /* ===== Desktop Hero Text ===== */
-
   .home-text p {
     font-size: 18px;
     line-height: 1.7;
   }
-
-  /* ===== Desktop Hero Headings ===== */
 
   .home-text h2 {
     font-size: 40px;
@@ -1688,13 +1306,9 @@ footer a:hover {
     font-size: 24px;
   }
 
-  /* ===== Desktop Skills Grid ===== */
-
   .skills-page main ul {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  /* ===== Desktop Education Timeline ===== */
 
   .education-page main > ul {
     max-width: 900px;
@@ -1710,755 +1324,568 @@ footer a:hover {
     font-size: 22px;
   }
 
-  /* ===== Desktop Projects Grid ===== */
   .project-controls {
     padding: 50px 40px 0;
   }
+
   .projects-page main ol {
     grid-template-columns: repeat(3, 1fr);
-
     gap: 30px;
-
     max-width: 1100px;
-
     padding: 60px 40px;
   }
-
-  /* ===== Desktop Project Cards ===== */
 
   .projects-page main ol > li {
     padding: 28px 32px;
   }
 
-  /* ===== Desktop Project Titles ===== */
-
   .projects-page main ol > li h3 {
     font-size: 22px;
   }
-
-  /* ===== Desktop Project Descriptions ===== */
 
   .projects-page main ol > li p {
     font-size: 16px;
   }
 
-  /* ===== Desktop Resume Section ===== */
-
   .resume-section {
     padding: 60px 40px;
   }
 
-  /* ===== Desktop Contact Page ===== */
-
   .contact-page main {
-        width: 88%;
-        max-width: 780px;
+    width: 88%;
+    max-width: 780px;
+    padding: 60px 0 70px;
+  }
 
-        padding: 60px 0 70px;
-    }
+  .contact-page main > h2 {
+    font-size: 32px;
+  }
 
-    .contact-page main > h2 {
-        font-size: 32px;
-    }
+  .contact-page form {
+    padding: 38px 40px;
+    border-radius: 16px;
+  }
 
-    .contact-page form {
-        padding: 38px 40px;
-        border-radius: 16px;
-    }
+  .contact-page form input[type="text"],
+  .contact-page form input[type="email"],
+  .contact-page form input[type="tel"],
+  .contact-page form textarea {
+    font-size: 15px;
+  }
 
-    .contact-page form input[type="text"],
-    .contact-page form input[type="email"],
-    .contact-page form input[type="tel"],
-    .contact-page form textarea {
-        font-size: 15px;
-    }
+  .contact-page form textarea {
+    min-height: 150px;
+  }
 
-    .contact-page form textarea {
-        min-height: 150px;
-    }
-
-    .contact-page form > section {
-        gap: 14px;
-    }
-
-
-  /* ===== Desktop Footer ===== */
+  .contact-page form > section {
+    gap: 14px;
+  }
 
   footer {
     padding: 35px 40px;
   }
 }
+
+
 /* ==================================================
    DARK MODE
-   Theme-only overrides
-   ================================================== */
-
-
-/* ==================================================
-   1. GLOBAL + HEADER + NAVIGATION
+   THEME-ONLY OVERRIDES
 ================================================== */
 
-/* ---------- Global Page ---------- */
-
+/* ---------- Global ---------- */
 body.dark-mode {
-    background:
-        radial-gradient(circle at 15% 20%, #263957 0%, transparent 40%),
-        radial-gradient(circle at 85% 75%, #293653 0%, transparent 40%),
-        linear-gradient(135deg, #1b2638, #202b3d);
-
-    color: #cbd5e1;
+  background:
+    radial-gradient(circle at 15% 20%, #263957 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, #293653 0%, transparent 40%),
+    linear-gradient(135deg, #1b2638, #202b3d);
+  color: #cbd5e1;
 }
 
 /* ---------- Header ---------- */
-
 body.dark-mode header {
-    background: transparent;
-    border-bottom-color: #263449;
+  background: transparent;
+  border-bottom-color: #263449;
 }
 
 body.dark-mode header h1 {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
 
-/* ---------- Dynamic Greeting ---------- */
-
 body.dark-mode #greeting {
-    background-color: #263449;
-    color: #dbeafe;
-    border-color: #3b82f6;
+  background-color: #263449;
+  color: #dbeafe;
+  border-color: #3b82f6;
 }
 
 /* ---------- Navigation ---------- */
-
 body.dark-mode nav {
-    background-color: #202b3d;
-    border-color: #334155;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  background-color: #202b3d;
+  border-color: #334155;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 body.dark-mode nav a {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
 
 body.dark-mode nav a:hover,
 body.dark-mode nav a.active {
-    background-color: #263449;
-    color: #60a5fa;
+  background-color: #263449;
+  color: #60a5fa;
 }
 
-/* ---------- Mobile Menu Button ---------- */
-
+/* ---------- Mobile Menu ---------- */
 body.dark-mode #menu-btn {
-    background-color: #202b3d;
-    color: #f1f5f9;
-    border-color: #334155;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background-color: #202b3d;
+  color: #f1f5f9;
+  border-color: #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-
-/* ==================================================
-   2. HOME PAGE
-================================================== */
-
-/* ---------- Hero Text ---------- */
-
-body.dark-mode .home-text p {
-    color: #cbd5e1;
+/* ---------- Theme Toggle ---------- */
+body.dark-mode #theme-toggle {
+  background-color: #263449;
+  border-color: #3a485c;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.28);
 }
 
-body.dark-mode .home-text h2 {
-    color: #f1f5f9;
+body.dark-mode #theme-toggle .theme-knob {
+  transform: translateX(30px);
+  background-color: #202b3d;
+  border-color: #60a5fa;
+  box-shadow:
+    0 0 10px rgba(96, 165, 250, 0.28),
+    0 3px 8px rgba(0, 0, 0, 0.30);
 }
 
-body.dark-mode .home-text h3 {
-    color: #94a3b8;
+body.dark-mode #theme-toggle .theme-sun {
+  opacity: 0.35;
+  transform: scale(0.9);
 }
 
-body.dark-mode .my_name {
-    color: #94a3b8;
+body.dark-mode #theme-toggle .theme-moon {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 5px rgba(147, 197, 253, 0.45));
 }
 
-/* ---------- Resume Button ---------- */
-
-body.dark-mode .home-text > a {
-    background-color: #2563eb;
-    color: #ffffff;
-}
-
-body.dark-mode .home-text > a:hover {
-    background-color: #3b82f6;
-}
-
-/* ---------- Social Links ---------- */
-
-body.dark-mode .social-link {
-    color: #60a5fa;
-}
-
-body.dark-mode .social-link:hover {
-    color: #93c5fd;
-}
-
-/* ---------- Home Link ---------- */
-
-body.dark-mode .home-link {
-    background-color: #263346;
-    color: #f1f5f9;
-    border-color: #3a485c;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
-}
-
-body.dark-mode .home-link:hover {
-    background-color: #30415a;
-    color: #93c5fd;
+body.dark-mode #theme-toggle:hover {
+  background-color: #30415a;
 }
 
 /* ---------- Back to Top ---------- */
-
 body.dark-mode #back-to-top {
-    background-color: #202b3d;
-    color: #f1f5f9;
-    border-color: #3b82f6;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  background-color: #202b3d;
+  color: #f1f5f9;
+  border-color: #3b82f6;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
 
 body.dark-mode #back-to-top:hover {
-    background-color: #2563eb;
-    color: #ffffff;
+  background-color: #2563eb;
+  color: #ffffff;
 }
 
 
 /* ==================================================
-   3. ABOUT PAGE
+   DARK MODE - HOME
 ================================================== */
 
-/* ---------- Heading ---------- */
+body.dark-mode .home-text p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .home-text h2 {
+  color: #f1f5f9;
+}
+
+body.dark-mode .home-text h3 {
+  color: #94a3b8;
+}
+
+body.dark-mode .my_name {
+  color: #94a3b8;
+}
+
+body.dark-mode .home-text > a {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+body.dark-mode .home-text > a:hover {
+  background-color: #3b82f6;
+}
+
+body.dark-mode .social-link {
+  color: #60a5fa;
+}
+
+body.dark-mode .social-link:hover {
+  color: #93c5fd;
+}
+
+body.dark-mode .home-link {
+  background-color: #263346;
+  color: #f1f5f9;
+  border-color: #3a485c;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+body.dark-mode .home-link:hover {
+  background-color: #30415a;
+  color: #93c5fd;
+}
+
+
+/* ==================================================
+   DARK MODE - ABOUT
+================================================== */
 
 body.dark-mode .about-page main h2 {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
-
-/* ---------- Paragraphs ---------- */
 
 body.dark-mode .about-content p {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
 
-/* ---------- Links ---------- */
-
 body.dark-mode .about-content a {
-    color: #60a5fa;
+  color: #60a5fa;
 }
 
 body.dark-mode .about-content a:hover {
-    color: #93c5fd;
+  color: #93c5fd;
 }
 
 
 /* ==================================================
-   4. SKILLS PAGE
+   DARK MODE - SKILLS
 ================================================== */
 
-/* ---------- Skills Container ---------- */
-
 body.dark-mode .skills-page main ul {
-    background: transparent;
+  background: transparent;
 }
-
-/* ---------- Skill Cards ---------- */
 
 body.dark-mode .skills-page main li {
-    background-color: #263346;
-    border-color: #3a485c;
-    color: #cbd5e1;
+  background-color: #263346;
+  border-color: #3a485c;
+  color: #cbd5e1;
 }
-
-/* ---------- Skill Title ---------- */
 
 body.dark-mode .skills-page main li h3 {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
-
-/* ---------- Skill Title Accent ---------- */
 
 body.dark-mode .skills-page main li h3::after {
-    background-color: #60a5fa;
+  background-color: #60a5fa;
 }
-
-/* ---------- Skill Description ---------- */
 
 body.dark-mode .skills-page main li p {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
 
-/* ---------- Skill Links ---------- */
-
 body.dark-mode .skills-page main li a {
-    color: #60a5fa;
+  color: #60a5fa;
 }
 
 body.dark-mode .skills-page main li a:hover {
-    color: #93c5fd;
+  color: #93c5fd;
 }
 
-/* ---------- Skill Hover ---------- */
-
 body.dark-mode .skills-page main li.show-skill:hover {
-    background-color: #30415a;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
+  background-color: #30415a;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
 }
 
 
 /* ==================================================
-   5. EDUCATION PAGE
+   DARK MODE - EDUCATION
 ================================================== */
 
-/* ---------- Timeline Line ---------- */
-
 body.dark-mode .education-page main > ul::before {
-    background-color: #334155;
+  background-color: #334155;
 }
-
-/* ---------- Education Cards ---------- */
 
 body.dark-mode .education-page main > ul > li {
-    background-color: #263346;
-    border-color: #3a485c;
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.16);
+  background-color: #263346;
+  border-color: #3a485c;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.16);
 }
-
-/* ---------- Timeline Checkpoint ---------- */
 
 body.dark-mode .education-page main > ul > li::before {
-    background-color: #3b82f6;
-    border-color: #202b3d;
-    box-shadow: 0 0 0 2px #334155;
+  background-color: #3b82f6;
+  border-color: #202b3d;
+  box-shadow: 0 0 0 2px #334155;
 }
-
-/* ---------- Education Titles ---------- */
 
 body.dark-mode .education-page main > ul > li > strong,
 body.dark-mode .education-page main > ul > li > b {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
-
-/* ---------- Education Information ---------- */
 
 body.dark-mode .education-page main > ul > li > ul > li {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
 
-/* ---------- Education Links ---------- */
-
 body.dark-mode .education-page main a {
-    color: #60a5fa;
+  color: #60a5fa;
 }
 
 body.dark-mode .education-page main a:hover {
-    color: #93c5fd;
+  color: #93c5fd;
 }
 
-/* ---------- Education Hover ---------- */
-
 body.dark-mode .education-page main > ul > li:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
 
 
 /* ==================================================
-   6. PROJECTS PAGE
+   DARK MODE - PROJECTS
 ================================================== */
 
-/* ---------- Project Controls ---------- */
-
 body.dark-mode .project-controls {
-    background: transparent;
+  background: transparent;
 }
-
-/* ---------- Search Label ---------- */
 
 body.dark-mode .project-controls label {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
 
-/* ---------- Search Input ---------- */
-
 body.dark-mode .project-controls input {
-    background-color: #1b2638;
-    color: #e2e8f0;
-    border-color: #3a485c;
+  background-color: #1b2638;
+  color: #e2e8f0;
+  border-color: #3a485c;
 }
 
 body.dark-mode .project-controls input::placeholder {
-    color: #94a3b8;
+  color: #94a3b8;
 }
-
-/* ---------- Search Input Focus ---------- */
 
 body.dark-mode .project-controls input:focus {
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
 }
-
-/* ---------- Project Count ---------- */
 
 body.dark-mode .project-count,
 body.dark-mode #project-count {
-    color: #94a3b8;
+  color: #94a3b8;
 }
 
-/* ---------- Filter Buttons ---------- */
-
 body.dark-mode .project-filters button {
-    background-color: #263346;
-    color: #cbd5e1;
-    border-color: #3a485c;
+  background-color: #263346;
+  color: #cbd5e1;
+  border-color: #3a485c;
 }
 
 body.dark-mode .project-filters button:hover {
-    background-color: #30415a;
-    color: #93c5fd;
-    border-color: #60a5fa;
+  background-color: #30415a;
+  color: #93c5fd;
+  border-color: #60a5fa;
 }
 
 body.dark-mode .project-filters button.active {
-    background-color: #2563eb;
-    color: #ffffff;
-    border-color: #2563eb;
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
 }
-
-/* ---------- Projects Container ---------- */
 
 body.dark-mode .projects-page main ol {
-    background: transparent;
+  background: transparent;
 }
-
-/* ---------- Project Cards ---------- */
 
 body.dark-mode .projects-page main ol > li {
-    background-color: #263346;
-    border-color: #3a485c;
-    color: #cbd5e1;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  background-color: #263346;
+  border-color: #3a485c;
+  color: #cbd5e1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
 }
-
-/* ---------- Project Titles ---------- */
 
 body.dark-mode .projects-page main ol > li h3 {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
-
-/* ---------- Project Description ---------- */
 
 body.dark-mode .projects-page main ol > li p {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
-
-/* ---------- Project Strong Text ---------- */
 
 body.dark-mode .projects-page main ol > li strong,
 body.dark-mode .projects-page main ol > li b {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
 
-/* ---------- Project Links ---------- */
-
 body.dark-mode .projects-page main ol > li a {
-    color: #60a5fa;
+  color: #60a5fa;
 }
 
 body.dark-mode .projects-page main ol > li a:hover {
-    color: #93c5fd;
+  color: #93c5fd;
 }
 
-/* ---------- View Project Button ---------- */
-
 body.dark-mode .view-project {
-    background-color: #2563eb;
-    color: #ffffff;
+  background-color: #2563eb;
+  color: #ffffff;
 }
 
 body.dark-mode .view-project:hover {
-    background-color: #3b82f6;
+  background-color: #3b82f6;
 }
 
-/* ---------- No Projects Message ---------- */
-
 body.dark-mode .projects-page main ol > li.no-projects {
-    background-color: #263346;
-    border-color: #3a485c;
+  background-color: #263346;
+  border-color: #3a485c;
 }
 
 body.dark-mode .projects-page main ol > li.no-projects p {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
 
 
 /* ==================================================
-   7. RESUME PAGE
+   DARK MODE - RESUME
 ================================================== */
 
-/* ---------- Resume Heading ---------- */
-
 body.dark-mode .resume-section h2 {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
-
-/* ---------- Resume Text ---------- */
 
 body.dark-mode .resume-section p {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
 
-/* ---------- Resume Button ---------- */
-
 body.dark-mode .resume-section > a {
-    background-color: #2563eb;
-    color: #ffffff;
+  background-color: #2563eb;
+  color: #ffffff;
 }
 
 body.dark-mode .resume-section > a:hover {
-    background-color: #3b82f6;
+  background-color: #3b82f6;
 }
-
-/* ---------- Resume Interaction Message ---------- */
 
 body.dark-mode #hero-message {
-    background-color: #263957;
-    color: #dbeafe;
-    border-left-color: #60a5fa;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  background-color: #263957;
+  color: #dbeafe;
+  border-left-color: #60a5fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
-/* ==================================================
-   8. CONTACT PAGE
-   DARK MODE
-================================================== */
 
-/* ---------- Get in Touch Heading ---------- */
+
+/* ==================================================
+   DARK MODE - CONTACT
+================================================== */
 
 html.dark-mode body.contact-page main > h2,
 body.dark-mode.contact-page main > h2 {
-    color: #f8fafc !important;
-
-    font-family: Arial, sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.2;
-
-    text-align: center;
-    letter-spacing: 0.3px;
+  color: #f8fafc !important;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.3px;
 }
-/* ---------- Contact Introduction ---------- */
 
 html.dark-mode body.contact-page main > p,
 body.dark-mode.contact-page main > p {
-    color: #cbd5e1 !important;
-
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.7;
-
-    text-align: center;
+  color: #cbd5e1 !important;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: center;
 }
-
-
-/* ==================================================
-   CONTACT FORM
-================================================== */
 
 body.dark-mode .contact-page form {
-    background-color: #263346;
-
-    border-color: #3a485c;
-
-    box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.18),
-        0 2px 6px rgba(0, 0, 0, 0.10);
+  background-color: #263346;
+  border-color: #3a485c;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.18),
+    0 2px 6px rgba(0, 0, 0, 0.10);
 }
-
-
-/* ==================================================
-   FORM LABELS
-================================================== */
 
 body.dark-mode .contact-page form > label {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
-
-
-/* ==================================================
-   TEXT INPUTS + TEXTAREA
-================================================== */
 
 body.dark-mode .contact-page form input[type="text"],
 body.dark-mode .contact-page form input[type="email"],
 body.dark-mode .contact-page form input[type="tel"],
 body.dark-mode .contact-page form textarea {
-    background-color: #1b2638;
-
-    color: #e2e8f0;
-
-    border-color: #3a485c;
+  background-color: #1b2638;
+  color: #e2e8f0;
+  border-color: #3a485c;
 }
-
-/* ---------- Placeholder ---------- */
 
 body.dark-mode .contact-page form input::placeholder,
 body.dark-mode .contact-page form textarea::placeholder {
-    color: #94a3b8;
+  color: #94a3b8;
 }
-
-/* ---------- Hover ---------- */
 
 body.dark-mode .contact-page form input[type="text"]:hover,
 body.dark-mode .contact-page form input[type="email"]:hover,
 body.dark-mode .contact-page form input[type="tel"]:hover,
 body.dark-mode .contact-page form textarea:hover {
-    border-color: #64748b;
+  border-color: #64748b;
 }
-
-/* ---------- Focus ---------- */
 
 body.dark-mode .contact-page form input[type="text"]:focus,
 body.dark-mode .contact-page form input[type="email"]:focus,
 body.dark-mode .contact-page form input[type="tel"]:focus,
 body.dark-mode .contact-page form textarea:focus {
-    background-color: #202d41;
-
-    border-color: #60a5fa;
-
-    box-shadow:
-        0 0 0 3px rgba(96, 165, 250, 0.15);
+  background-color: #202d41;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
 }
-
-
-/* ==================================================
-   PREFERRED CONTACT METHOD
-================================================== */
-
-/* ---------- Heading ---------- */
 
 body.dark-mode .contact-page form > p {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
-
-/* ---------- Fieldset ---------- */
 
 body.dark-mode .contact-page form fieldset {
-    background-color: #1b2638;
-
-    border-color: #3a485c;
+  background-color: #1b2638;
+  border-color: #3a485c;
 }
-
-/* ---------- Radio Buttons ---------- */
 
 body.dark-mode .contact-page form input[type="radio"] {
-    accent-color: #60a5fa;
+  accent-color: #60a5fa;
 }
-
-/* ---------- Radio Labels ---------- */
 
 body.dark-mode .contact-page form fieldset label {
-    color: #cbd5e1;
+  color: #cbd5e1;
 }
 
-
-/* ==================================================
-   VALIDATION MESSAGES
-================================================== */
-
 body.dark-mode .contact-page .form-error {
-    color: #f87171;
+  color: #f87171;
 }
 
 body.dark-mode .contact-page .form-success {
-    color: #4ade80;
+  color: #4ade80;
 }
-
-
-/* ==================================================
-   BUTTONS
-================================================== */
 
 body.dark-mode .contact-page form button {
-    background-color: #2563eb;
-    color: #ffffff;
+  background-color: #2563eb;
+  color: #ffffff;
 }
-
-/* ---------- Button Hover ---------- */
 
 body.dark-mode .contact-page form button:hover {
-    background-color: #3b82f6;
-
-    box-shadow:
-        0 6px 14px rgba(37, 99, 235, 0.25);
+  background-color: #3b82f6;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
 }
+
+
 /* ==================================================
-   FOOTER
+   DARK MODE - FOOTER
 ================================================== */
 
 body.dark-mode footer {
-    background-color: #172033;
-    color: #f1f5f9;
+  background-color: #172033;
+  color: #f1f5f9;
 }
 
 body.dark-mode footer a {
-    color: #f1f5f9;
+  color: #f1f5f9;
 }
 
 body.dark-mode footer a:hover {
-    color: #93c5fd;
-}
-/* ==================================================
-   DARK MODE for dark mode button
-================================================== */
-
-body.dark-mode #theme-toggle {
-    background-color: #263449;
-
-    border-color: #3a485c;
-
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.28);
-}
-
-
-/* ---------- Move Knob to Moon ---------- */
-
-body.dark-mode #theme-toggle .theme-knob {
-    transform: translateX(30px);
-
-    background-color: #202b3d;
-
-    border-color: #60a5fa;
-
-    box-shadow:
-        0 0 10px rgba(96, 165, 250, 0.28),
-        0 3px 8px rgba(0, 0, 0, 0.30);
-}
-
-
-/* ---------- Dark Mode Icons ---------- */
-
-body.dark-mode #theme-toggle .theme-sun {
-    opacity: 0.35;
-    transform: scale(0.9);
-}
-
-body.dark-mode #theme-toggle .theme-moon {
-    opacity: 1;
-    transform: scale(1.05);
-
-    filter:
-        drop-shadow(0 0 5px rgba(147, 197, 253, 0.45));
-}
-
-
-/* ==================================================
-   DARK MODE HOVER
-================================================== */
-
-body.dark-mode #theme-toggle:hover {
-    background-color: #30415a;
+  color: #93c5fd;
 }
