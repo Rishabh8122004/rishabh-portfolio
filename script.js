@@ -1,4 +1,4 @@
-console.log("JavaScript file loaded");
+
 /* ==================================================
    THEME TOGGLE + LOCAL STORAGE
 ================================================== */
@@ -8,66 +8,48 @@ const themeToggle = document.querySelector("#theme-toggle");
 /* ---------- Apply Saved Theme ---------- */
 
 if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark-mode");
+  document.body.classList.add("dark-mode");
 
-    document.documentElement.classList.add("dark-mode");
-    document.body.classList.add("dark-mode");
-
-    if (themeToggle) {
-        themeToggle.setAttribute("aria-label", "Switch to light mode");
-        themeToggle.setAttribute("aria-pressed", "true");
-    }
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-label", "Switch to light mode");
+    themeToggle.setAttribute("aria-pressed", "true");
+  }
 }
 
 /* ---------- Toggle Theme ---------- */
 
 if (themeToggle) {
+  themeToggle.addEventListener("click", function () {
+    document.documentElement.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode");
 
-    themeToggle.addEventListener("click", function () {
+    const darkModeActive =
+      document.body.classList.contains("dark-mode");
 
-        document.documentElement.classList.toggle("dark-mode");
-        document.body.classList.toggle("dark-mode");
-
-        const darkModeActive =
-            document.body.classList.contains("dark-mode");
-
-        if (darkModeActive) {
-
-            localStorage.setItem("theme", "dark");
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Switch to light mode"
-            );
-
-            themeToggle.setAttribute(
-                "aria-pressed",
-                "true"
-            );
-
-        } else {
-
-            localStorage.setItem("theme", "light");
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Switch to dark mode"
-            );
-
-            themeToggle.setAttribute(
-                "aria-pressed",
-                "false"
-            );
-        }
-    });
+    if (darkModeActive) {
+      localStorage.setItem("theme", "dark");
+      themeToggle.setAttribute("aria-label", "Switch to light mode");
+      themeToggle.setAttribute("aria-pressed", "true");
+    } else {
+      localStorage.setItem("theme", "light");
+      themeToggle.setAttribute("aria-label", "Switch to dark mode");
+      themeToggle.setAttribute("aria-pressed", "false");
+    }
+  });
 }
+
+
 /* ==================================================
    01. SMART NAVIGATION
 ================================================== */
 
 const navigation = document.querySelector("nav");
-
-/*BUtton for navigation menu*/
 const menuButton = document.querySelector("#menu-btn");
+const navigationLinks = navigation.querySelectorAll("a");
+
+/* ---------- Mobile Menu Toggle ---------- */
+
 menuButton.addEventListener("click", function () {
   navigation.classList.toggle("show");
 
@@ -77,14 +59,18 @@ menuButton.addEventListener("click", function () {
     document.body.style.overflow = "";
   }
 });
-const navigationLinks = navigation.querySelectorAll("a");
+
+/* ---------- Close Menu After Selecting A Link ---------- */
+
 navigationLinks.forEach(function (link) {
   link.addEventListener("click", function () {
     navigation.classList.remove("show");
     document.body.style.overflow = "";
   });
 });
-// Close navigation when clicking outside the menu
+
+/* ---------- Close Menu When Clicking Outside ---------- */
+
 document.addEventListener("click", function (event) {
   if (
     navigation.classList.contains("show") &&
@@ -95,14 +81,19 @@ document.addEventListener("click", function (event) {
     document.body.style.overflow = "";
   }
 });
-// Get the current page URL
+
+/* ---------- Active Navigation State ---------- */
+
 const currentPage = window.location.pathname;
+
 navigationLinks.forEach(function (link) {
   if (link.pathname === currentPage) {
     link.classList.add("active");
   }
 });
-// Back to top button
+
+/* ---------- Back-To-Top Button ---------- */
+
 const backToTopButton = document.querySelector("#back-to-top");
 
 if (backToTopButton) {
@@ -121,11 +112,15 @@ if (backToTopButton) {
     });
   });
 }
+
+
 /* ==================================================
    02. DYNAMIC HERO
 ================================================== */
 
 const greeting = document.querySelector("#greeting");
+
+/* ---------- Time-Based Greeting ---------- */
 
 if (greeting) {
   const currentHour = new Date().getHours();
@@ -142,28 +137,33 @@ if (greeting) {
     greeting.textContent = "🌃 Good Night";
   }
 }
-/* hero message after clicking view resume */
+
+/* ---------- Interactive Resume CTA ---------- */
+
 const heroMessage = document.querySelector("#hero-message");
 const resumeButton = document.querySelector(".home-text > a");
 
 if (heroMessage && resumeButton) {
   resumeButton.addEventListener("click", function () {
-    heroMessage.textContent = "📄 Thanks for checking out my resume!";
+    heroMessage.textContent =
+      "📄 Thanks for checking out my resume!";
     heroMessage.style.display = "block";
   });
 }
+
+
 /* ==================================================
-   03. SKILLS ENGINE
+   03. DYNAMIC SKILLS ENGINE
 ================================================== */
 
 const skills = [
   {
     name: "C Programming",
     category: "Programming",
-    description: "Strong foundation in C programming and problem solving.",
+    description:
+      "Strong foundation in C programming and problem solving.",
     proficiency: "Advanced",
   },
-
   {
     name: "C++",
     category: "Programming",
@@ -171,7 +171,6 @@ const skills = [
       "Primary programming language for DSA and competitive programming.",
     proficiency: "Advanced",
   },
-
   {
     name: "Data Structures & Algorithms",
     category: "Computer Science",
@@ -181,7 +180,6 @@ const skills = [
     link: "../image/Data_Structure_certificate.jpg",
     linkText: "Certificate",
   },
-
   {
     name: "Problem Solving",
     category: "Core Skill",
@@ -191,21 +189,20 @@ const skills = [
     link: "https://leetcode.com/u/Rxhabh_/",
     linkText: "My LeetCode Profile",
   },
-
   {
     name: "HTML",
     category: "Web Development",
-    description: "Building structured and semantic web pages.",
+    description:
+      "Building structured and semantic web pages.",
     proficiency: "Intermediate",
   },
-
   {
     name: "CSS",
     category: "Web Development",
-    description: "Creating responsive layouts using modern CSS techniques.",
+    description:
+      "Creating responsive layouts using modern CSS techniques.",
     proficiency: "Intermediate",
   },
-
   {
     name: "JavaScript",
     category: "Web Development",
@@ -213,7 +210,6 @@ const skills = [
       "Learning DOM manipulation, events, APIs, and interactive web development.",
     proficiency: "Intermediate",
   },
-
   {
     name: "Git & GitHub",
     category: "Development Tools",
@@ -224,6 +220,8 @@ const skills = [
 ];
 
 const skillsList = document.querySelector("#skills-list");
+
+/* ---------- Generate Skill Cards ---------- */
 
 if (skillsList) {
   skills.forEach(function (skill) {
@@ -249,9 +247,12 @@ if (skillsList) {
     skillsList.appendChild(skillItem);
   });
 }
-/* ===== Skill Card Scroll Animation ===== */
 
-const skillCards = document.querySelectorAll(".skills-page main ul > li");
+/* ---------- Skill Card Scroll Animation ---------- */
+
+const skillCards = document.querySelectorAll(
+  ".skills-page main ul > li"
+);
 
 const skillObserver = new IntersectionObserver(
   function (entries) {
@@ -265,12 +266,14 @@ const skillObserver = new IntersectionObserver(
   },
   {
     threshold: 0.2,
-  },
+  }
 );
 
 skillCards.forEach(function (card) {
   skillObserver.observe(card);
 });
+
+
 /* ==================================================
    04. PROJECT SYSTEM
 ================================================== */
@@ -286,7 +289,6 @@ const projects = [
     details:
       "A two-player console game where the board is managed using a simple array-based structure. The project focuses on implementing game logic, player turns, win detection, and basic input handling in C++.",
   },
-
   {
     name: "Number Conversion System",
     description:
@@ -297,7 +299,6 @@ const projects = [
     details:
       "A console-based conversion system that handles conversions between binary, octal, decimal, and hexadecimal number systems. The project focuses on understanding number representation, positional values, base conversion logic, and user input handling in C++.",
   },
-
   {
     name: "Hospital Management System",
     description:
@@ -308,7 +309,6 @@ const projects = [
     details:
       "A console-based management system designed to organize patient information, appointments, and medical history. A custom heap / priority queue is used to prioritize appointments based on their scheduled time, demonstrating practical use of data structures in a real-world scenario.",
   },
-
   {
     name: "Personal Portfolio",
     description:
@@ -319,7 +319,6 @@ const projects = [
     details:
       "A portfolio website developed from scratch to practice the fundamentals of web development. It uses semantic HTML for structure and CSS for responsive layouts, navigation, cards, forms, and different page sections. The project was later extended with JavaScript functionality.",
   },
-
   {
     name: "JavaScript Interactive Portfolio",
     description:
@@ -330,7 +329,6 @@ const projects = [
     details:
       "An enhanced version of the portfolio focused on making the website interactive using JavaScript. It includes dynamic project and skill rendering, search and filtering, navigation interactions, a project details modal, dynamic hero content, and other DOM-based interactions.",
   },
-
   {
     name: "DSA Problem Solving",
     description:
@@ -342,29 +340,34 @@ const projects = [
       "A collection of algorithmic problems solved while developing strong problem-solving skills. The work covers arrays, strings, linked lists, hash maps, stacks, queues, heaps, trees, dynamic programming, searching, sorting, and other common data structure and algorithmic techniques.",
   },
 ];
+
 const projectsList = document.querySelector("#projects-list");
 const searchInput = document.querySelector("#project-search");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCount = document.querySelector("#project-count");
 
-/* ===== Project Modal Elements ===== */
+/* ---------- Project Modal Elements ---------- */
 
 const projectModal = document.querySelector("#project-modal");
 const modalTitle = document.querySelector("#modal-title");
-const projectModalContent = document.querySelector(".project-modal-content");
+const projectModalContent = document.querySelector(
+  ".project-modal-content"
+);
 const modalDescription = document.querySelector("#modal-description");
-const modalTechnologies = document.querySelector("#modal-technologies");
+const modalTechnologies =
+  document.querySelector("#modal-technologies");
 const modalLink = document.querySelector("#modal-link");
 const modalClose = document.querySelector("#modal-close");
 
 let currentCategory = "All";
 
-/* ===== Render Projects ===== */
+/* ---------- Render Projects ---------- */
 
 function renderProjects(projectsToRender) {
   projectsList.innerHTML = "";
 
-  projectCount.textContent = `Showing ${projectsToRender.length} of ${projects.length} projects`;
+  projectCount.textContent =
+    `Showing ${projectsToRender.length} of ${projects.length} projects`;
 
   if (projectsToRender.length === 0) {
     projectsList.innerHTML = `
@@ -374,6 +377,7 @@ function renderProjects(projectsToRender) {
     `;
     return;
   }
+
   projectsToRender.forEach(function (project) {
     const projectItem = document.createElement("li");
 
@@ -392,16 +396,14 @@ function renderProjects(projectsToRender) {
       </button>
     `;
 
-    const viewButton = projectItem.querySelector(".view-project");
+    const viewButton =
+      projectItem.querySelector(".view-project");
 
     viewButton.addEventListener("click", function () {
-      
       modalTitle.textContent = project.name;
-
       modalDescription.textContent = project.details;
-
-      modalTechnologies.textContent = project.technologies.join(", ");
-
+      modalTechnologies.textContent =
+        project.technologies.join(", ");
       modalLink.href = project.link;
 
       projectModal.style.display = "flex";
@@ -413,23 +415,30 @@ function renderProjects(projectsToRender) {
     projectsList.appendChild(projectItem);
   });
 }
-/* ===== Filter Projects ===== */
+
+/* ---------- Filter Projects ---------- */
 
 function filterProjects() {
-  const searchText = searchInput.value.trim().toLowerCase();
+  const searchText =
+    searchInput.value.trim().toLowerCase();
 
   const filteredProjects = projects.filter(function (project) {
     const matchesCategory =
-      currentCategory === "All" || project.category === currentCategory;
+      currentCategory === "All" ||
+      project.category === currentCategory;
 
     const matchesSearch =
       project.name.toLowerCase().includes(searchText) ||
       project.description.toLowerCase().includes(searchText) ||
       project.details.toLowerCase().includes(searchText) ||
       project.technologies.some(function (technology) {
-        return technology.toLowerCase().includes(searchText);
+        return technology
+          .toLowerCase()
+          .includes(searchText);
       }) ||
-      project.category.toLowerCase().includes(searchText);
+      project.category
+        .toLowerCase()
+        .includes(searchText);
 
     return matchesCategory && matchesSearch;
   });
@@ -437,14 +446,12 @@ function filterProjects() {
   renderProjects(filteredProjects);
 }
 
-/* ===== Search Event ===== */
+/* ---------- Search And Filter Events ---------- */
 
 if (searchInput && projectsList) {
   searchInput.addEventListener("input", function () {
     filterProjects();
   });
-
-  /* ===== Filter Button Events ===== */
 
   filterButtons.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -462,11 +469,15 @@ if (searchInput && projectsList) {
     });
   });
 
-  /* ===== Initial Project Rendering ===== */
-
   renderProjects(projects);
 }
-/* ===== Close Project Modal ===== */
+
+
+/* ==================================================
+   05. PROJECT MODAL
+================================================== */
+
+/* ---------- Close Modal ---------- */
 
 if (modalClose && projectModal) {
   modalClose.addEventListener("click", function () {
@@ -481,7 +492,8 @@ if (modalClose && projectModal) {
     }
   });
 }
-/* ===== Escape Key ===== */
+
+/* ---------- Close Modal With Escape Key ---------- */
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
@@ -496,9 +508,7 @@ document.addEventListener("keydown", function (event) {
     document.body.style.overflow = "";
   }
 });
-/* ==================================================
-   05. PROJECT MODAL
-================================================== */
+
 
 /* ==================================================
    06. CONTACT FORM
@@ -518,13 +528,15 @@ if (contactForm) {
   const phoneError = document.querySelector("#phone-error");
   const subjectError = document.querySelector("#subject-error");
   const messageError = document.querySelector("#message-error");
-  const contactMethodError = document.querySelector("#contact-method-error");
+  const contactMethodError =
+    document.querySelector("#contact-method-error");
   const formSuccess = document.querySelector("#form-success");
 
   contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Clear previous messages
+    /* ---------- Clear Previous Messages ---------- */
+
     nameError.textContent = "";
     emailError.textContent = "";
     phoneError.textContent = "";
@@ -535,45 +547,57 @@ if (contactForm) {
 
     let isValid = true;
 
-    // Name validation
+    /* ---------- Name Validation ---------- */
+
     if (nameInput.value.trim() === "") {
-      nameError.textContent = "Please enter your full name.";
+      nameError.textContent =
+        "Please enter your full name.";
       isValid = false;
     }
 
-    // Email validation
+    /* ---------- Email Validation ---------- */
+
     if (emailInput.value.trim() === "") {
-      emailError.textContent = "Please enter your email address.";
+      emailError.textContent =
+        "Please enter your email address.";
       isValid = false;
     } else if (!emailInput.validity.valid) {
-      emailError.textContent = "Please enter a valid email address.";
+      emailError.textContent =
+        "Please enter a valid email address.";
       isValid = false;
     }
 
-    // Phone validation
+    /* ---------- Phone Validation ---------- */
+
     if (
       phoneInput.value.trim() !== "" &&
       !/^[0-9]{10}$/.test(phoneInput.value.trim())
     ) {
-      phoneError.textContent = "Please enter a valid 10-digit phone number.";
+      phoneError.textContent =
+        "Please enter a valid 10-digit phone number.";
       isValid = false;
     }
 
-    // Subject validation
+    /* ---------- Subject Validation ---------- */
+
     if (subjectInput.value.trim() === "") {
-      subjectError.textContent = "Please enter a subject.";
+      subjectError.textContent =
+        "Please enter a subject.";
       isValid = false;
     }
 
-    // Message validation
+    /* ---------- Message Validation ---------- */
+
     if (messageInput.value.trim() === "") {
-      messageError.textContent = "Please enter a message.";
+      messageError.textContent =
+        "Please enter a message.";
       isValid = false;
     }
 
-    // Preferred contact method validation
+    /* ---------- Preferred Contact Method ---------- */
+
     const contactMethod = document.querySelector(
-      'input[name="contact-method"]:checked',
+      'input[name="contact-method"]:checked'
     );
 
     if (!contactMethod) {
@@ -582,16 +606,58 @@ if (contactForm) {
       isValid = false;
     }
 
+    /* ---------- Successful Submission ---------- */
+
     if (isValid) {
-      formSuccess.textContent = "Your message has been submitted successfully!";
+      formSuccess.textContent =
+        "Your message has been submitted successfully!";
+
       contactForm.reset();
     }
   });
 }
+
+
 /* ==================================================
-   07. THEME & LOCAL STORAGE
+   07. API INTEGRATION
 ================================================== */
 
 /* ==================================================
-   08. API INTEGRATION
+   07. API INTEGRATION
 ================================================== */
+
+const loadQuoteButton = document.querySelector("#load-quote");
+const apiStatus = document.querySelector("#api-status");
+const quoteResult = document.querySelector("#quote-result");
+
+if (loadQuoteButton && apiStatus && quoteResult) {
+  loadQuoteButton.addEventListener("click", async function () {
+    apiStatus.textContent = "Loading quote...";
+    quoteResult.textContent = "";
+
+    try {
+      const response = await fetch(
+        "https://dummyjson.com/quotes/random"
+      );
+
+      if (!response.ok) {
+        throw new Error("API request failed.");
+      }
+
+      const data = await response.json();
+
+      if (!data || !data.quote) {
+        throw new Error("Empty API response.");
+      }
+
+      quoteResult.textContent =
+        `"${data.quote}" — ${data.author}`;
+
+      apiStatus.textContent = "Quote loaded successfully.";
+    } catch (error) {
+      apiStatus.textContent =
+        "Unable to load a quote. Please try again.";
+      quoteResult.textContent = "";
+    }
+  });
+}

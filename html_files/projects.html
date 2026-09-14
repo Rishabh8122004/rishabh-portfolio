@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects</title>
     <script>
-    if (localStorage.getItem("theme") === "dark") {
+      if (localStorage.getItem("theme") === "dark") {
         document.documentElement.classList.add("dark-mode");
-    }
-</script>
+      }
+    </script>
     <link rel="stylesheet" href="../style.css" />
     <script src="../script.js" defer></script>
   </head>
@@ -24,16 +24,16 @@
         <a href="resume.html">Resume</a>
       </nav>
       <button
-    id="theme-toggle"
-    type="button"
-    aria-label="Switch to dark mode"
-    aria-pressed="false"
->
-    <span class="theme-icon theme-sun">☀️</span>
-    <span class="theme-track"></span>
-    <span class="theme-icon theme-moon">🌙</span>
-    <span class="theme-knob"></span>
-</button>
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+      >
+        <span class="theme-icon theme-sun">☀️</span>
+        <span class="theme-track"></span>
+        <span class="theme-icon theme-moon">🌙</span>
+        <span class="theme-knob"></span>
+      </button>
     </header>
     <main>
       <!-- ===== Project Search ===== -->
@@ -130,6 +130,15 @@
             View Project
           </a>
         </article>
+      </section>
+      <!-- API integration-->
+      <section id="api-section">
+        <h2>Developer Quote</h2>
+
+        <button id="load-quote" type="button">Get a Quote</button>
+
+        <p id="api-status"></p>
+        <blockquote id="quote-result"></blockquote>
       </section>
     </main>
     <footer>
