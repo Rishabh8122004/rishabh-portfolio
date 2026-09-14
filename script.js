@@ -1,3 +1,21 @@
+console.log("JavaScript file loaded");
+/* ==================================================
+   07. THEME & LOCAL STORAGE
+================================================== */
+
+const themeToggle = document.querySelector("#theme-toggle");
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      themeToggle.textContent = "☀️";
+    } else {
+      themeToggle.textContent = "🌙";
+    }
+  });
+}
 /* ==================================================
    01. SMART NAVIGATION
 ================================================== */
@@ -69,7 +87,7 @@ if (greeting) {
   const currentHour = new Date().getHours();
 
   if (currentHour < 5) {
-    greeting.textContent = "🌙 Good Night";
+    greeting.textContent = "🌃 Good Night";
   } else if (currentHour < 12) {
     greeting.textContent = "🌅 Good Morning";
   } else if (currentHour < 18) {
@@ -77,7 +95,7 @@ if (greeting) {
   } else if (currentHour < 21) {
     greeting.textContent = "🌇 Good Evening";
   } else {
-    greeting.textContent = "🌙 Good Night";
+    greeting.textContent = "🌃 Good Night";
   }
 }
 /* hero message after clicking view resume */
@@ -442,6 +460,90 @@ document.addEventListener("keydown", function (event) {
    06. CONTACT FORM
 ================================================== */
 
+const contactForm = document.querySelector("#contact-form");
+
+if (contactForm) {
+  const nameInput = document.querySelector("#name");
+  const emailInput = document.querySelector("#email");
+  const phoneInput = document.querySelector("#phone");
+  const subjectInput = document.querySelector("#subject");
+  const messageInput = document.querySelector("#message");
+
+  const nameError = document.querySelector("#name-error");
+  const emailError = document.querySelector("#email-error");
+  const phoneError = document.querySelector("#phone-error");
+  const subjectError = document.querySelector("#subject-error");
+  const messageError = document.querySelector("#message-error");
+  const contactMethodError = document.querySelector("#contact-method-error");
+  const formSuccess = document.querySelector("#form-success");
+
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Clear previous messages
+    nameError.textContent = "";
+    emailError.textContent = "";
+    phoneError.textContent = "";
+    subjectError.textContent = "";
+    messageError.textContent = "";
+    contactMethodError.textContent = "";
+    formSuccess.textContent = "";
+
+    let isValid = true;
+
+    // Name validation
+    if (nameInput.value.trim() === "") {
+      nameError.textContent = "Please enter your full name.";
+      isValid = false;
+    }
+
+    // Email validation
+    if (emailInput.value.trim() === "") {
+      emailError.textContent = "Please enter your email address.";
+      isValid = false;
+    } else if (!emailInput.validity.valid) {
+      emailError.textContent = "Please enter a valid email address.";
+      isValid = false;
+    }
+
+    // Phone validation
+    if (
+      phoneInput.value.trim() !== "" &&
+      !/^[0-9]{10}$/.test(phoneInput.value.trim())
+    ) {
+      phoneError.textContent = "Please enter a valid 10-digit phone number.";
+      isValid = false;
+    }
+
+    // Subject validation
+    if (subjectInput.value.trim() === "") {
+      subjectError.textContent = "Please enter a subject.";
+      isValid = false;
+    }
+
+    // Message validation
+    if (messageInput.value.trim() === "") {
+      messageError.textContent = "Please enter a message.";
+      isValid = false;
+    }
+
+    // Preferred contact method validation
+    const contactMethod = document.querySelector(
+      'input[name="contact-method"]:checked',
+    );
+
+    if (!contactMethod) {
+      contactMethodError.textContent =
+        "Please select a preferred contact method.";
+      isValid = false;
+    }
+
+    if (isValid) {
+      formSuccess.textContent = "Your message has been submitted successfully!";
+      contactForm.reset();
+    }
+  });
+}
 /* ==================================================
    07. THEME & LOCAL STORAGE
 ================================================== */

@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Me</title>
     <link rel="stylesheet" href="../style.css" />
-    <script src = "../script.js" defer></script>
+    <script src="../script.js" defer></script>
   </head>
   <body class="contact-page">
-   <header>
+    <header>
       <button id="menu-btn">☰</button>
       <a class="home-link" href="../index.html">Home</a>
       <h1>Contact Me</h1>
@@ -18,31 +18,36 @@
         <a href="projects.html">Projects</a>
         <a href="resume.html">Resume</a>
       </nav>
+      <button id="theme-toggle" type="button">🌙</button>
     </header>
     <main>
       <h2>Get in Touch</h2>
       <p>Have a question or want to connect? Feel free to send me a message.</p>
-      <form>
+      <form id="contact-form">
         <!-- Full Name -->
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required />
+        <small class="form-error" id="name-error"></small>
 
         <!-- Email -->
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />
+        <small class="form-error" id="email-error"></small>
 
         <!-- Phone Number -->
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="phone" />
+        <small class="form-error" id="phone-error"></small>
 
         <!-- Subject -->
         <label for="subject">Subject:</label>
         <input type="text" id="subject" name="subject" />
+        <small class="form-error" id="subject-error"></small>
 
         <!-- Message -->
         <label for="message">Message:</label>
-
         <textarea id="message" name="message" rows="6" cols="40"></textarea>
+        <small class="form-error" id="message-error"></small>
 
         <!-- Preferred Contact Method -->
         <p>Preferred Contact Method:</p>
@@ -65,10 +70,15 @@
           />
           <label for="contact-phone">Phone</label>
         </fieldset>
-
+        <small class="form-error" id="contact-method-error"></small>
         <!-- Buttons -->
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
+        <section>
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </section>
+
+        <!-- Success Message -->
+        <small class="form-success" id="form-success"></small>
       </form>
     </main>
     <footer>
