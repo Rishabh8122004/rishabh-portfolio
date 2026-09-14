@@ -1,7 +1,29 @@
 /* ==================================================
    GLOBAL STYLES
    ================================================== */
+/* Prevent dark-mode flash during page load */
+html.dark-mode body {
+    background:
+        radial-gradient(circle at 15% 20%, #263957 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, #293653 0%, transparent 40%),
+        linear-gradient(135deg, #1b2638, #202b3d);
+}
+/* Prevent navigation flash during page load */
+html.dark-mode nav {
+    background-color: #202b3d;
+    border-color: #334155;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
 
+html.dark-mode nav a {
+    color: #cbd5e1;
+}
+
+html.dark-mode nav a:hover,
+html.dark-mode nav a.active {
+    background-color: #263449;
+    color: #60a5fa;
+}
 /* ===== Website Background ===== */
 body {
   background:
@@ -1012,190 +1034,307 @@ SKILLS PAGE
 }
 /* ==================================================
    CONTACT PAGE
+   MOBILE-FIRST BASE
 ================================================== */
 
-/* ===== Contact Form Container ===== */
+/* ---------- Main Contact Area ---------- */
 
 .contact-page main {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 40px 20px;
+    width: 92%;
+    max-width: 760px;
+
+    margin: 0 auto;
+    padding: 40px 0 50px;
 }
 
-/* ===== Contact Section Heading ===== */
+/* ---------- Get in Touch Heading ---------- */
 
 .contact-page main > h2 {
-  margin: 0 0 10px;
-  color: #172554;
-  font-size: 28px;
-  text-align: center;
+    margin: 0 0 12px;
+
+    color: #172554;
+
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    text-align: center;
+    letter-spacing: 0.3px;
 }
 
-/* ===== Contact Introduction ===== */
+/* ---------- Contact Introduction ---------- */
 
 .contact-page main > p {
-  margin: 0 0 25px;
-  color: #475569;
-  font-size: 16px;
-  line-height: 1.6;
-  text-align: center;
+    max-width: 620px;
+
+    margin: 0 auto 30px;
+
+    color: #475569;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+
+    text-align: center;
 }
 
-/* ===== Contact Form Layout ===== */
+
+/* ==================================================
+   CONTACT FORM
+================================================== */
 
 .contact-page form {
-  display: grid;
-  gap: 10px;
-  padding: 30px 25px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+    display: grid;
+    gap: 8px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 22px 18px;
+
+    background-color: #f8fafc;
+
+    border: 1px solid #dbe3ee;
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 24px rgba(15, 23, 42, 0.07),
+        0 2px 6px rgba(15, 23, 42, 0.04);
 }
 
-/* ===== Contact Labels ===== */
 
-.contact-page form label {
-  font-weight: 600;
-  color: #172554;
+/* ==================================================
+   FORM LABELS
+================================================== */
+
+.contact-page form > label {
+    margin-top: 8px;
+
+    color: #172554;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
 }
 
-/* ===== Contact Text Fields ===== */
+
+/* ==================================================
+   TEXT INPUTS + TEXTAREA
+================================================== */
 
 .contact-page form input[type="text"],
 .contact-page form input[type="email"],
 .contact-page form input[type="tel"],
 .contact-page form textarea {
-  width: 100%;
-  padding: 10px 12px;
-  box-sizing: border-box;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  background-color: white;
-  color: #172554;
-  font-size: 15px;
-  font-family: Arial, sans-serif;
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 11px 13px;
+
+    background-color: #ffffff;
+    color: #172554;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
 }
 
-/* ===== Contact Input Focus ===== */
+/* ---------- Placeholder ---------- */
 
-.contact-page form input[type="text"]:focus,
-.contact-page form input[type="email"]:focus,
-.contact-page form input[type="tel"]:focus,
-.contact-page form textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+.contact-page form input::placeholder,
+.contact-page form textarea::placeholder {
+    color: #94a3b8;
 }
 
-/* ===== Contact Input Hover ===== */
+/* ---------- Hover ---------- */
 
 .contact-page form input[type="text"]:hover,
 .contact-page form input[type="email"]:hover,
 .contact-page form input[type="tel"]:hover,
 .contact-page form textarea:hover {
-  border-color: #94a3b8;
+    border-color: #94a3b8;
 }
 
-/* ===== Contact Textarea ===== */
+/* ---------- Focus ---------- */
+
+.contact-page form input[type="text"]:focus,
+.contact-page form input[type="email"]:focus,
+.contact-page form input[type="tel"]:focus,
+.contact-page form textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+
+    background-color: #ffffff;
+}
+
+/* ---------- Textarea ---------- */
 
 .contact-page form textarea {
-  resize: vertical;
-  min-height: 120px;
+    min-height: 140px;
+    resize: vertical;
 }
 
-/* ===== Preferred Contact Method ===== */
 
-.contact-page form fieldset {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  background-color: white;
-}
-
-/* ===== Radio Buttons ===== */
-
-.contact-page form input[type="radio"] {
-  width: auto;
-  margin: 0 2px 0 5px;
-}
-
-/* ===== Contact Button Section ===== */
-
-.contact-page form > section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin-top: 5px;
-}
-
-/* ===== Contact Buttons ===== */
-
-.contact-page form button {
-  width: fit-content;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  background-color: #2563eb;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    background-color 0.3s,
-    transform 0.3s;
-}
-
-/* ===== Contact Button Hover ===== */
-
-.contact-page form button:hover {
-  background-color: #1d4ed8;
-  transform: scale(1.05);
-}
-
-/* ===== Contact Button Press Effect ===== */
-
-.contact-page form button:active {
-  transform: scale(0.98);
-}
-
-/* ===== Validation Error Messages ===== */
+/* ==================================================
+   VALIDATION MESSAGES
+================================================== */
 
 .contact-page .form-error {
-  min-height: 18px;
-  color: #dc2626;
-  font-size: 13px;
-  line-height: 1.4;
-}
+    min-height: 17px;
 
-/* ===== Validation Success Message ===== */
+    color: #dc2626;
+
+    font-size: 13px;
+    line-height: 1.4;
+}
 
 .contact-page .form-success {
-  min-height: 20px;
-  color: #15803d;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
+    min-height: 20px;
+
+    margin-top: 4px;
+
+    color: #15803d;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    text-align: center;
 }
 
-/* ===== Mobile Contact Buttons ===== */
 
-@media (max-width: 480px) {
-  .contact-page form > section {
+/* ==================================================
+   PREFERRED CONTACT METHOD
+================================================== */
+
+/* ---------- Heading ---------- */
+
+.contact-page form > p {
+    margin: 13px 0 4px;
+
+    color: #172554;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ---------- Radio Container ---------- */
+
+.contact-page form fieldset {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px 16px;
+
+    margin: 0;
+    padding: 13px 14px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+/* ---------- Radio Buttons ---------- */
+
+.contact-page form input[type="radio"] {
+    width: 16px;
+    height: 16px;
+
+    margin: 0;
+
+    accent-color: #2563eb;
+
+    cursor: pointer;
+}
+
+/* ---------- Radio Labels ---------- */
+
+.contact-page form fieldset label {
+    margin: 0;
+
+    color: #334155;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+.contact-page form > section {
+    display: flex;
     flex-direction: column;
-  }
+    align-items: stretch;
 
-  .contact-page form button {
-    width: 100%;
-  }
+    gap: 10px;
+
+    margin-top: 14px;
 }
+
+/* ---------- Button ---------- */
+
+.contact-page form button {
+    width: 100%;
+
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #2563eb;
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* ---------- Button Hover ---------- */
+
+.contact-page form button:hover {
+    background-color: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 14px rgba(37, 99, 235, 0.22);
+}
+
+/* ---------- Button Active ---------- */
+
+.contact-page form button:active {
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
 /* ==================================================
    FOOTER
    ================================================== */
@@ -1345,28 +1484,40 @@ footer a:hover {
   .resume-section {
     padding: 50px 30px;
   }
-
   /* ===== Tablet Contact Page ===== */
-
   .contact-page main {
-    padding: 50px 30px;
-  }
+        width: 90%;
+        padding: 50px 0 60px;
+    }
 
-  .contact-page form {
-    padding: 35px 30px;
-  }
+    .contact-page main > h2 {
+        font-size: 30px;
+    }
 
-  /* ===== Tablet Contact Heading ===== */
+    .contact-page main > p {
+        font-size: 16px;
+        margin-bottom: 32px;
+    }
 
-  .contact-page main > h2 {
-    font-size: 30px;
-  }
+    .contact-page form {
+        padding: 32px 30px;
+        border-radius: 16px;
+    }
 
-  /* ===== Tablet Footer ===== */
+    .contact-page form > section {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 
-  footer {
-    padding: 30px;
-  }
+    .contact-page form button {
+        width: auto;
+        min-width: 120px;
+    }
+
+    .contact-page form fieldset {
+        gap: 10px 18px;
+    }
 }
 
 /* ==================================================
@@ -1475,22 +1626,662 @@ footer a:hover {
   /* ===== Desktop Contact Page ===== */
 
   .contact-page main {
-    padding: 60px 40px;
-  }
+        width: 88%;
+        max-width: 780px;
 
-  .contact-page form {
-    padding: 40px 35px;
-  }
+        padding: 60px 0 70px;
+    }
 
-  /* ===== Desktop Contact Heading ===== */
+    .contact-page main > h2 {
+        font-size: 32px;
+    }
 
-  .contact-page main > h2 {
-    font-size: 32px;
-  }
+    .contact-page form {
+        padding: 38px 40px;
+        border-radius: 16px;
+    }
+
+    .contact-page form input[type="text"],
+    .contact-page form input[type="email"],
+    .contact-page form input[type="tel"],
+    .contact-page form textarea {
+        font-size: 15px;
+    }
+
+    .contact-page form textarea {
+        min-height: 150px;
+    }
+
+    .contact-page form > section {
+        gap: 14px;
+    }
+
 
   /* ===== Desktop Footer ===== */
 
   footer {
     padding: 35px 40px;
   }
+}
+/* ==================================================
+   DARK MODE
+   Theme-only overrides
+   ================================================== */
+
+
+/* ==================================================
+   1. GLOBAL + HEADER + NAVIGATION
+================================================== */
+
+/* ---------- Global Page ---------- */
+
+body.dark-mode {
+    background:
+        radial-gradient(circle at 15% 20%, #263957 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, #293653 0%, transparent 40%),
+        linear-gradient(135deg, #1b2638, #202b3d);
+
+    color: #cbd5e1;
+}
+
+/* ---------- Header ---------- */
+
+body.dark-mode header {
+    background: transparent;
+    border-bottom-color: #263449;
+}
+
+body.dark-mode header h1 {
+    color: #f1f5f9;
+}
+
+/* ---------- Dynamic Greeting ---------- */
+
+body.dark-mode #greeting {
+    background-color: #263449;
+    color: #dbeafe;
+    border-color: #3b82f6;
+}
+
+/* ---------- Navigation ---------- */
+
+body.dark-mode nav {
+    background-color: #202b3d;
+    border-color: #334155;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode nav a {
+    color: #cbd5e1;
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode nav a.active {
+    background-color: #263449;
+    color: #60a5fa;
+}
+
+/* ---------- Mobile Menu Button ---------- */
+
+body.dark-mode #menu-btn {
+    background-color: #202b3d;
+    color: #f1f5f9;
+    border-color: #334155;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==================================================
+   2. HOME PAGE
+================================================== */
+
+/* ---------- Hero Text ---------- */
+
+body.dark-mode .home-text p {
+    color: #cbd5e1;
+}
+
+body.dark-mode .home-text h2 {
+    color: #f1f5f9;
+}
+
+body.dark-mode .home-text h3 {
+    color: #94a3b8;
+}
+
+body.dark-mode .my_name {
+    color: #94a3b8;
+}
+
+/* ---------- Resume Button ---------- */
+
+body.dark-mode .home-text > a {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+body.dark-mode .home-text > a:hover {
+    background-color: #3b82f6;
+}
+
+/* ---------- Social Links ---------- */
+
+body.dark-mode .social-link {
+    color: #60a5fa;
+}
+
+body.dark-mode .social-link:hover {
+    color: #93c5fd;
+}
+
+/* ---------- Home Link ---------- */
+
+body.dark-mode .home-link {
+    background-color: #263346;
+    color: #f1f5f9;
+    border-color: #3a485c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+body.dark-mode .home-link:hover {
+    background-color: #30415a;
+    color: #93c5fd;
+}
+
+/* ---------- Back to Top ---------- */
+
+body.dark-mode #back-to-top {
+    background-color: #202b3d;
+    color: #f1f5f9;
+    border-color: #3b82f6;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode #back-to-top:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+
+/* ==================================================
+   3. ABOUT PAGE
+================================================== */
+
+/* ---------- Heading ---------- */
+
+body.dark-mode .about-page main h2 {
+    color: #f1f5f9;
+}
+
+/* ---------- Paragraphs ---------- */
+
+body.dark-mode .about-content p {
+    color: #cbd5e1;
+}
+
+/* ---------- Links ---------- */
+
+body.dark-mode .about-content a {
+    color: #60a5fa;
+}
+
+body.dark-mode .about-content a:hover {
+    color: #93c5fd;
+}
+
+
+/* ==================================================
+   4. SKILLS PAGE
+================================================== */
+
+/* ---------- Skills Container ---------- */
+
+body.dark-mode .skills-page main ul {
+    background: transparent;
+}
+
+/* ---------- Skill Cards ---------- */
+
+body.dark-mode .skills-page main li {
+    background-color: #263346;
+    border-color: #3a485c;
+    color: #cbd5e1;
+}
+
+/* ---------- Skill Title ---------- */
+
+body.dark-mode .skills-page main li h3 {
+    color: #f1f5f9;
+}
+
+/* ---------- Skill Title Accent ---------- */
+
+body.dark-mode .skills-page main li h3::after {
+    background-color: #60a5fa;
+}
+
+/* ---------- Skill Description ---------- */
+
+body.dark-mode .skills-page main li p {
+    color: #cbd5e1;
+}
+
+/* ---------- Skill Links ---------- */
+
+body.dark-mode .skills-page main li a {
+    color: #60a5fa;
+}
+
+body.dark-mode .skills-page main li a:hover {
+    color: #93c5fd;
+}
+
+/* ---------- Skill Hover ---------- */
+
+body.dark-mode .skills-page main li.show-skill:hover {
+    background-color: #30415a;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
+}
+
+
+/* ==================================================
+   5. EDUCATION PAGE
+================================================== */
+
+/* ---------- Timeline Line ---------- */
+
+body.dark-mode .education-page main > ul::before {
+    background-color: #334155;
+}
+
+/* ---------- Education Cards ---------- */
+
+body.dark-mode .education-page main > ul > li {
+    background-color: #263346;
+    border-color: #3a485c;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.16);
+}
+
+/* ---------- Timeline Checkpoint ---------- */
+
+body.dark-mode .education-page main > ul > li::before {
+    background-color: #3b82f6;
+    border-color: #202b3d;
+    box-shadow: 0 0 0 2px #334155;
+}
+
+/* ---------- Education Titles ---------- */
+
+body.dark-mode .education-page main > ul > li > strong,
+body.dark-mode .education-page main > ul > li > b {
+    color: #f1f5f9;
+}
+
+/* ---------- Education Information ---------- */
+
+body.dark-mode .education-page main > ul > li > ul > li {
+    color: #cbd5e1;
+}
+
+/* ---------- Education Links ---------- */
+
+body.dark-mode .education-page main a {
+    color: #60a5fa;
+}
+
+body.dark-mode .education-page main a:hover {
+    color: #93c5fd;
+}
+
+/* ---------- Education Hover ---------- */
+
+body.dark-mode .education-page main > ul > li:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ==================================================
+   6. PROJECTS PAGE
+================================================== */
+
+/* ---------- Project Controls ---------- */
+
+body.dark-mode .project-controls {
+    background: transparent;
+}
+
+/* ---------- Search Label ---------- */
+
+body.dark-mode .project-controls label {
+    color: #f1f5f9;
+}
+
+/* ---------- Search Input ---------- */
+
+body.dark-mode .project-controls input {
+    background-color: #1b2638;
+    color: #e2e8f0;
+    border-color: #3a485c;
+}
+
+body.dark-mode .project-controls input::placeholder {
+    color: #94a3b8;
+}
+
+/* ---------- Search Input Focus ---------- */
+
+body.dark-mode .project-controls input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+/* ---------- Project Count ---------- */
+
+body.dark-mode .project-count,
+body.dark-mode #project-count {
+    color: #94a3b8;
+}
+
+/* ---------- Filter Buttons ---------- */
+
+body.dark-mode .project-filters button {
+    background-color: #263346;
+    color: #cbd5e1;
+    border-color: #3a485c;
+}
+
+body.dark-mode .project-filters button:hover {
+    background-color: #30415a;
+    color: #93c5fd;
+    border-color: #60a5fa;
+}
+
+body.dark-mode .project-filters button.active {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+/* ---------- Projects Container ---------- */
+
+body.dark-mode .projects-page main ol {
+    background: transparent;
+}
+
+/* ---------- Project Cards ---------- */
+
+body.dark-mode .projects-page main ol > li {
+    background-color: #263346;
+    border-color: #3a485c;
+    color: #cbd5e1;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+/* ---------- Project Titles ---------- */
+
+body.dark-mode .projects-page main ol > li h3 {
+    color: #f1f5f9;
+}
+
+/* ---------- Project Description ---------- */
+
+body.dark-mode .projects-page main ol > li p {
+    color: #cbd5e1;
+}
+
+/* ---------- Project Strong Text ---------- */
+
+body.dark-mode .projects-page main ol > li strong,
+body.dark-mode .projects-page main ol > li b {
+    color: #f1f5f9;
+}
+
+/* ---------- Project Links ---------- */
+
+body.dark-mode .projects-page main ol > li a {
+    color: #60a5fa;
+}
+
+body.dark-mode .projects-page main ol > li a:hover {
+    color: #93c5fd;
+}
+
+/* ---------- View Project Button ---------- */
+
+body.dark-mode .view-project {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+body.dark-mode .view-project:hover {
+    background-color: #3b82f6;
+}
+
+/* ---------- No Projects Message ---------- */
+
+body.dark-mode .projects-page main ol > li.no-projects {
+    background-color: #263346;
+    border-color: #3a485c;
+}
+
+body.dark-mode .projects-page main ol > li.no-projects p {
+    color: #cbd5e1;
+}
+
+
+/* ==================================================
+   7. RESUME PAGE
+================================================== */
+
+/* ---------- Resume Heading ---------- */
+
+body.dark-mode .resume-section h2 {
+    color: #f1f5f9;
+}
+
+/* ---------- Resume Text ---------- */
+
+body.dark-mode .resume-section p {
+    color: #cbd5e1;
+}
+
+/* ---------- Resume Button ---------- */
+
+body.dark-mode .resume-section > a {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+body.dark-mode .resume-section > a:hover {
+    background-color: #3b82f6;
+}
+
+/* ---------- Resume Interaction Message ---------- */
+
+body.dark-mode #hero-message {
+    background-color: #263957;
+    color: #dbeafe;
+    border-left-color: #60a5fa;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+/* ==================================================
+   8. CONTACT PAGE
+   DARK MODE
+================================================== */
+
+/* ---------- Get in Touch Heading ---------- */
+
+html.dark-mode body.contact-page main > h2,
+body.dark-mode.contact-page main > h2 {
+    color: #f8fafc !important;
+
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+/* ---------- Contact Introduction ---------- */
+
+html.dark-mode body.contact-page main > p,
+body.dark-mode.contact-page main > p {
+    color: #cbd5e1 !important;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   CONTACT FORM
+================================================== */
+
+body.dark-mode .contact-page form {
+    background-color: #263346;
+
+    border-color: #3a485c;
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.18),
+        0 2px 6px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ==================================================
+   FORM LABELS
+================================================== */
+
+body.dark-mode .contact-page form > label {
+    color: #f1f5f9;
+}
+
+
+/* ==================================================
+   TEXT INPUTS + TEXTAREA
+================================================== */
+
+body.dark-mode .contact-page form input[type="text"],
+body.dark-mode .contact-page form input[type="email"],
+body.dark-mode .contact-page form input[type="tel"],
+body.dark-mode .contact-page form textarea {
+    background-color: #1b2638;
+
+    color: #e2e8f0;
+
+    border-color: #3a485c;
+}
+
+/* ---------- Placeholder ---------- */
+
+body.dark-mode .contact-page form input::placeholder,
+body.dark-mode .contact-page form textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* ---------- Hover ---------- */
+
+body.dark-mode .contact-page form input[type="text"]:hover,
+body.dark-mode .contact-page form input[type="email"]:hover,
+body.dark-mode .contact-page form input[type="tel"]:hover,
+body.dark-mode .contact-page form textarea:hover {
+    border-color: #64748b;
+}
+
+/* ---------- Focus ---------- */
+
+body.dark-mode .contact-page form input[type="text"]:focus,
+body.dark-mode .contact-page form input[type="email"]:focus,
+body.dark-mode .contact-page form input[type="tel"]:focus,
+body.dark-mode .contact-page form textarea:focus {
+    background-color: #202d41;
+
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+
+/* ==================================================
+   PREFERRED CONTACT METHOD
+================================================== */
+
+/* ---------- Heading ---------- */
+
+body.dark-mode .contact-page form > p {
+    color: #f1f5f9;
+}
+
+/* ---------- Fieldset ---------- */
+
+body.dark-mode .contact-page form fieldset {
+    background-color: #1b2638;
+
+    border-color: #3a485c;
+}
+
+/* ---------- Radio Buttons ---------- */
+
+body.dark-mode .contact-page form input[type="radio"] {
+    accent-color: #60a5fa;
+}
+
+/* ---------- Radio Labels ---------- */
+
+body.dark-mode .contact-page form fieldset label {
+    color: #cbd5e1;
+}
+
+
+/* ==================================================
+   VALIDATION MESSAGES
+================================================== */
+
+body.dark-mode .contact-page .form-error {
+    color: #f87171;
+}
+
+body.dark-mode .contact-page .form-success {
+    color: #4ade80;
+}
+
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+body.dark-mode .contact-page form button {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+/* ---------- Button Hover ---------- */
+
+body.dark-mode .contact-page form button:hover {
+    background-color: #3b82f6;
+
+    box-shadow:
+        0 6px 14px rgba(37, 99, 235, 0.25);
+}
+/* ==================================================
+   FOOTER
+================================================== */
+
+body.dark-mode footer {
+    background-color: #172033;
+    color: #f1f5f9;
+}
+
+body.dark-mode footer a {
+    color: #f1f5f9;
+}
+
+body.dark-mode footer a:hover {
+    color: #93c5fd;
 }

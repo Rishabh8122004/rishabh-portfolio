@@ -1,20 +1,36 @@
 console.log("JavaScript file loaded");
 /* ==================================================
-   07. THEME & LOCAL STORAGE
+   THEME TOGGLE + LOCAL STORAGE
 ================================================== */
 
 const themeToggle = document.querySelector("#theme-toggle");
 
-if (themeToggle) {
-  themeToggle.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
+/* Apply the saved theme when the page loads */
+if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.body.classList.add("dark-mode");
 
-    if (document.body.classList.contains("dark-mode")) {
-      themeToggle.textContent = "☀️";
-    } else {
-      themeToggle.textContent = "🌙";
+    if (themeToggle) {
+        themeToggle.textContent = "☀️";
     }
-  });
+}
+
+/* Toggle and save the selected theme */
+if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+
+        document.documentElement.classList.toggle("dark-mode");
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            themeToggle.textContent = "☀️";
+        } else {
+            localStorage.setItem("theme", "light");
+            themeToggle.textContent = "🌙";
+        }
+
+    });
 }
 /* ==================================================
    01. SMART NAVIGATION
