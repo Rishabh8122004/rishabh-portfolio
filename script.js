@@ -395,6 +395,7 @@ function renderProjects(projectsToRender) {
     const viewButton = projectItem.querySelector(".view-project");
 
     viewButton.addEventListener("click", function () {
+      
       modalTitle.textContent = project.name;
 
       modalDescription.textContent = project.details;
@@ -412,7 +413,6 @@ function renderProjects(projectsToRender) {
     projectsList.appendChild(projectItem);
   });
 }
-
 /* ===== Filter Projects ===== */
 
 function filterProjects() {
